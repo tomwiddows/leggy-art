@@ -31,7 +31,16 @@
         <title>Leggy Art {% block extra_title %}{% endblock %}</title>
     </head>
     <body>
-        <header class="container-fluid fixed-top"></header>
+        <header class="container-fluid fixed-top">
+            <div class="row navbar navbar-light bg-light">
+                <div class="col">Leggy Art</div>
+                <div class="col">Products</div>
+                <div class="col">About</div>
+                <div class="col">Sign in</div>
+                <div class="col">Register</div>
+                <div class="col">Basket</div>
+            </div>
+        </header>
 
         {% if messages %}
             <div class="message-container"></div>
