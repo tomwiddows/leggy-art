@@ -6,7 +6,7 @@ body {
     /*background: url('') no-repeat center center fixed;*/
     background-size: cover;
     height: calc(100vh-164px);
-    font-family: "Spicy Rice", serif;
-    font-weight: 400;
+    font-family: "Yeseva One", serif;
+    font-weight: 300 !important;
     font-style: normal;
 }
