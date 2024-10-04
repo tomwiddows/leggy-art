@@ -149,7 +149,7 @@ SOCIALACCOUNT_PROVIDERS = {}
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-tomwiddows-leggyart-zzog25or9el.ws-eu116.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-tomwiddows-leggyart-zyexeiklff4.ws.codeinstitute-ide.net']
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
