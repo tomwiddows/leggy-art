@@ -9,7 +9,7 @@ def all_prints(request):
     prints = Print.objects.all()
 
     contex = {
-        'prints': prints,
+        'products': prints,
     }
 
-    return render(prints, 'prints/prints.html', context)
+    return render(prints, 'products/prints.html', context)
