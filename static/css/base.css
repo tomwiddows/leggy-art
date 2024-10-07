@@ -2,11 +2,21 @@ html {
     height: 100%;
 }
 
+@media only screen and (max-width: 640px) {
+    body {
+        background: url('/media/hero_img_sm.png') no-repeat center top fixed;
+        background-size: contain;
+    }
+}
+
 body {
-    /*background: url('') no-repeat center center fixed;*/
-    background-size: cover;
-    height: calc(100vh-164px);
+    background: url('/media/hero_img_md.png') no-repeat center top fixed;
+    background-size: contain;
     font-family: "Yeseva One", serif;
     font-weight: 300 !important;
     font-style: normal;
+}
+
+.white-bg {
+    background-color: #ffffff;
 }
