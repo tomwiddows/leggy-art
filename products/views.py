@@ -4,12 +4,12 @@ from .models import Print
 # Create your views here.
 
 def all_prints(request):
-    """ A view to show all prints, including sorting and search queries """#
+    """ A view to show all prints, including sorting and search queries """
 
-    prints = Print.objects.all()
+    products = Print.objects.all()
 
-    contex = {
-        'products': prints,
+    context = {
+        'products': products,
     }
 
-    return render(prints, 'products/prints.html', context)
+    return render(request, 'products/prints.html', context)
