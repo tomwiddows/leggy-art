@@ -6,6 +6,9 @@ html {
     body {
         background: url('/media/hero_img_sm.png') no-repeat center top fixed;
         background-size: contain;
+        font-family: "Yeseva One", serif;
+        font-weight: 300 !important;
+        font-style: normal;
     }
 }
 
@@ -19,4 +22,18 @@ body {
 
 .white-bg {
     background-color: #ffffff;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+.heading-height {
+    margin-top: calc(100vw / (16/10));
 }
