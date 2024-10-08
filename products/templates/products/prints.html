@@ -7,14 +7,23 @@
             <div class="row">
                 <div class="col text-center mt-3">
                     <h2>Prints</h2>
-                    <hr class="w-50 mb-1 text-center">
+                    <hr class="w-100 mb-1">
+                    <div class="dropdown">
+                        <a class="logo_font text-black mr-5" href="#" id="products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration:none">
+                            Sort By...
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="products-link">
+                            <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">Price (Ascending)</a>
+                            <a href="{% url 'products' %}?sort=price&direction=desc" class="dropdown-item">Price (Decending)</a>
+                            <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">Rating</a>
+                            <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">Category</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="product-container col-10 offset-1">
-                    <div class="row mt-1 mb-2">
-
-                    </div>
+                    <div class="row mt-1 mb-2"></div>
                     <div class="row">
                     {% for product in products %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
