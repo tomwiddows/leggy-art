@@ -28,7 +28,7 @@ body {
     height: 100%;
     width: 100%;
     background: #ffffff;
-    top: 0;
+    top: 60;
     left: 0;
     position: fixed;
     z-index: -1;
@@ -36,8 +36,4 @@ body {
 
 .heading-height {
     margin-top: calc(10vw / (16/10));
-}
-
-.top-content {
-    margin-top: 60px;
 }
