@@ -37,3 +37,7 @@ body {
 .heading-height {
     margin-top: calc(10vw / (16/10));
 }
+
+.top-content {
+    margin-top: 60px;
+}
