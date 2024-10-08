@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="overlay">
+        <div class="container-fluid"> 
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 offset-2 mt-3">
+                    <div class="image-container my-5">
+                        <div class="slides">
+                            <input type="radio" name="slides" id="slide1" checked>
+                            <figure>
+                                <a href="{{ product.image_1.url }}"></a>
+                                    <img class="card-img-top img-fluid" src="{{ product.image_1.url }}" alt="{{ product.name }}">
+                                </a>
+                                <label for="slide2" class="next">&#9654;</label>
+                            </figure>
+
+                            <input type="radio" name="slides" id="slide2">
+                            <figure>
+                                <a href="{{ product.image_2.url }}"></a>
+                                    <img class="card-img-top img-fluid" src="{{ product.image_2.url }}" alt="{{ product.name }}">
+                                </a>
+                                <label for="slide1" class="last">&#9664;</label>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 offset-2 mt-3">
+                    <div class="product-details-container mb-5 mt-md-5">
+                        <p class="mb-0">{{ product.name }}</p>
+                        <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
+                        {% if product.rating %}
+                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                        {% else %}
+                            <small class="text-muted">No Rating</small>
+                        {% endif %}
+                        <p class="mt-3">{{ product.description }}</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/slideshow.css' %}">
+    
+{% endblock %}
+
+{% block extra_js %}
+    
+{% endblock %}
