@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from urllib.parse import urlencode
-from .models import Print
+from .models import Print, Category
 
 # Create your views here.
 
@@ -12,12 +12,17 @@ def all_prints(request):
 
     products = Print.objects.all()
     query = None
+    categories = None
 
     if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
                 
                 get_params = request.GET.copy()
                 get_params.pop('q', None)
@@ -35,6 +40,7 @@ def all_prints(request):
     context = {
         'products': products,
         'search_term': query,
+        'current_categories': categories,
     }
 
     return render(request, 'products/prints.html', context)

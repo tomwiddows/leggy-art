@@ -51,9 +51,10 @@
                                 <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{% url 'products' %}" class="dropdown-item">All Products</a></li>
-                                    <li><a href="#" class="dropdown-item">Superheroes</a></li>
-                                    <li><a href="#" class="dropdown-item">Anime</a></li>
-                                    <li><a href="#" class="dropdown-item">Leggy Originals</a></li>
+                                    <li><a href="{% url 'products' %}?category=superheroes" class="dropdown-item">Superheroes</a></li>
+                                    <li><a href="{% url 'products' %}?category=anime" class="dropdown-item">Anime</a></li>
+                                    <li><a href="{% url 'products' %}?category=video_games" class="dropdown-item">Video Game Characters</a></li>
+                                    <li><a href="{% url 'products' %}?category=leggy_originals" class="dropdown-item">Leggy Originals</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
