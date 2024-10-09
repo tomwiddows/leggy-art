@@ -80,6 +80,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.SessionStorage'
+
 WSGI_APPLICATION = 'leggy_art.wsgi.application'
 
 
