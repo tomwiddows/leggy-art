@@ -5,20 +5,31 @@
     <div class="overlay">
         <div class="container-fluid"> 
             <div class="row">
-                <div class="col text-center mt-3">
-                    <h2>Prints</h2>
+                <div class="col mt-3">
+                    <h2 class="text-center">Prints</h2>
                     <hr class="w-100 mb-1">
-                    <div class="dropdown">
-                        <a class="logo_font text-black mr-5" href="#" id="products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-decoration:none">
-                            Sort By...
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="products-link">
-                            <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">Price (Ascending)</a>
-                            <a href="{% url 'products' %}?sort=price&direction=desc" class="dropdown-item">Price (Decending)</a>
-                            <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">Rating</a>
-                            <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">Category</a>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="text-muted mt-4 text-center text-md-left">
+                                {% if search_term or current_categories or current_sorting != 'None_None' %}
+                                    <span class="small"><a href="{% url 'products' %}">Back to all prints</a> | </span>
+                                {% endif %}
+                                {{ products|length }} Product(s){% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                            </p>
+                        </div>
+                        <div class="dropdown mt-3 col-6 text-center">
+                            <a role="button" class="btn btn-outline-dark" href="#" id="products-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sort By...
+                            </a>
+                            <div class="dropdown-menu border-1" aria-labelledby="products-link">
+                                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">Price (Low to High)</a>
+                                <a href="{% url 'products' %}?sort=price&direction=desc" class="dropdown-item">Price (High to Low)</a>
+                                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">Rating</a>
+                                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">Category</a>
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
             <div class="row">
@@ -38,6 +49,13 @@
                                     <div class="row">
                                         <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                            {% if product.category %}
+                                                <p class="small mt-1 mb-0">
+                                                    <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                                    </a>
+                                                </p>
+                                            {% endif %}
                                             {% if product.rating %}
                                                 <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                                             {% else %}
