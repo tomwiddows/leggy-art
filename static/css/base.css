@@ -52,14 +52,14 @@ body {
     right: 10px;
 }
 
-.btt-link
-.update-link
+.btt-link,
+.update-link,
 .remove-item {
-    cursor: hand;
+    cursor: pointer;
 }
 
-.btn-outline-black:hover
-.btn-outline-black:active
+.btn-outline-black:hover,
+.btn-outline-black:active,
 .btn-outline-black:focus {
     background: black;
     color: white !important;
