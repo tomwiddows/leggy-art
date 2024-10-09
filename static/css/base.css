@@ -62,3 +62,8 @@ body {
     background: black;
     color: white !important;
 }
+
+.btn-black {
+    background: black;
+    color: white;
+}
