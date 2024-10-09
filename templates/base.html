@@ -88,7 +88,7 @@
                             {% endif %}
                         </ul>
                         <div class="nav-item text-center">
-                            <a href="#" class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}">
+                            <a href="{% url 'view_basket' %}" class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}">
                                 <i class="fas fa-shopping-bag fa-lg"></i>
                                 <p class="my-0">
                                     {% if grand_total %}
