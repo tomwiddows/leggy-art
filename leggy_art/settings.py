@@ -74,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'basket.contexts.basket_contents'
             ],
         },
     },
@@ -160,3 +161,6 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 lOGIN_URL = '/accounts/login'
 lOGIN_REDIRECT_URL = '/'
 
+FREE_DELIVERY_THRESHOLD = 50
+BASELINE_DELIVERY_FEE = 3
+ADDED_FEE_PER_ITEM = 0.5
