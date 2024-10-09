@@ -19,7 +19,12 @@
                     </div>
                 {% else %}
                     <p class="lead mb-5">Your basket is emplty.</p>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black btn lg"></a>
+                    <a href="{% url 'products' %}" class="btn btn-outline-black btn lg">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Keep Shopping</span>
+                    </a>
                 {% endif %}
             </div>
         </div>
