@@ -27,6 +27,10 @@ body {
     background-color: #ffffff;
 }
 
+.text-black {
+    color: #000 !important;
+}
+
 .overlay {
     height: 100%;
     width: 100%;
@@ -41,8 +45,14 @@ body {
     margin-top: calc(10vw / (16/10));
 }
 
-.button-border {
-    border-style: solid;
-    border: 1px;
-    border-radius: 10px;
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor:pointer
 }
