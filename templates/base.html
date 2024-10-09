@@ -136,7 +136,12 @@
 
         {% block postload_js %}
             <script type="text/javascript">
-                $('.toast').toast('show');
+                $(document).ready(function(){
+                    $('.toast').each(function() {
+                        var toast = new bootstrap.Toast($(this)[0])
+                        toast.show()
+                    })
+                });
             </script>
         {% endblock %}
     </body>
