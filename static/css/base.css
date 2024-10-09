@@ -5,20 +5,22 @@ html {
 
 @media only screen and (max-width: 640px) {
     body {
-        background: url('/media/hero_img_sm.png') no-repeat center top fixed;
+        background: url('/media/hero_img_sm.png') no-repeat center top;
         background-size: contain;
         font-family: "Yeseva One", serif;
         font-weight: 300 !important;
         font-style: normal;
+        overflow: auto;
     }
 }
 
 body {
-    background: url('/media/hero_img_md.png') no-repeat center top fixed;
+    background: url('/media/hero_img_md.png') no-repeat center top;
     background-size: contain;
     font-family: "Yeseva One", serif;
     font-weight: 300 !important;
     font-style: normal;
+    overflow: auto;
 }
 
 .white-bg {
@@ -31,10 +33,16 @@ body {
     background: #ffffff;
     top: 60;
     left: 0;
-    position: fixed;
+    /*position: fixed;*/
     z-index: -1;
 }
 
 .heading-height {
     margin-top: calc(10vw / (16/10));
+}
+
+.button-border {
+    border-style: solid;
+    border: 1px;
+    border-radius: 10px;
 }
