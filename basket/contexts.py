@@ -7,7 +7,6 @@ def basket_contents(request):
 
     basket_items = []
     total = 0
-    product_count = 0
     basket = request.session.get('basket', {})
 
     for item_id, quantity in basket.items():
@@ -15,7 +14,6 @@ def basket_contents(request):
             product = get_object_or_404(Print, pk=item_id)
             subtotal = quantity * product.price
             total += quantity * product.price
-            product_count += quantity
             basket_items.append({
                 'item_id': item_id,
                 'quantity': quantity,
@@ -24,7 +22,7 @@ def basket_contents(request):
             })
 
     if total < settings.FREE_DELIVERY_THRESHOLD and total != 0:
-        delivery = Decimal(settings.BASELINE_DELIVERY_FEE + product_count * settings.ADDED_FEE_PER_ITEM)
+        delivery = Decimal(settings.BASELINE_DELIVERY_FEE + (total * settings.EXTRA_DELIVERY_PERCENTAGE) / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
         delivery = 0
@@ -35,7 +33,6 @@ def basket_contents(request):
     context = {
         'basket_items': basket_items,
         'total': total,
-        'product_count': product_count,
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
