@@ -1,19 +1,31 @@
 html {
+    width: 100%;
     height: 100%;
-    overflow: visible;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+
+#logo {
+    width: 8em;
+}
+
+#delivery-banner {
+    width: auto;
 }
 
 body {
-    background: url('/media/hero_img_sm.png') no-repeat center top;
+    background: url('/media/hero_img_sm.png') no-repeat 0px 104px;
     background-size: contain;
     font-family: "Yeseva One", serif;
-    font-weight: 300 !important;
     font-style: normal;
-    overflow: auto;
 }
 
 .white-bg {
     background-color: #ffffff;
+}
+
+.heading-height {
+    margin-top: 65vw;
 }
 
 .text-black {
@@ -22,23 +34,23 @@ body {
 
 .overlay {
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background: #ffffff;
     top: 60;
     left: 0;
     z-index: -1;
 }
 
-.heading-height {
-    margin-top: calc(15vw / (16/10));
-}
-
-.heading-height {
-    margin-top: calc(9vw / (16/10));
-}
-
 .homepage-content {
     margin-top: calc(30vw / (16/10));
+}
+
+#subheading-padding {
+    padding-left: 2em;
+}
+
+.category-img {
+    width: 100%;
 }
 
 .btt-button {
@@ -134,17 +146,43 @@ body {
 }
 
 
-@media (min-width: 640px) {
+@media (min-width: 576px) {
     body {
-        background: url('/media/hero_img_md.png') no-repeat center top;
+        background: url('/media/hero_img_sm.png') no-repeat 0px 104px;
         background-size: contain;
         font-family: "Yeseva One", serif;
-        font-weight: 300 !important;
+        font-style: normal;
+    }
+
+    .heading-height {
+        margin-top: 70vw;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        background: url('/media/hero_img_md.png') no-repeat 0px 50px;
+        background-size: contain;
+        font-family: "Yeseva One", serif;
         font-style: normal;
         overflow: auto;
     }
 
     .heading-height {
         margin-top: calc(9vw / (16/10));
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        background: url('/media/hero_img_md.png') no-repeat 0px 50px;
+        background-size: contain;
+        font-family: "Yeseva One", serif;
+        font-style: normal;
+        overflow: auto;
+    }
+
+    .heading-height {
+        margin-top: calc(20vw / (16/10));
     }
 }

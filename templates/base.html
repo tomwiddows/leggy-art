@@ -40,8 +40,8 @@
     <body>
         <header>
             <nav class="navbar navbar-expand-md white-bg">
-                <div class="container-fluid w-100">
-                    <a class="navbar-brand" href="{% url 'home' %}">Leggy Art</a>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'home' %}"><img id="logo" src="media/leggy_art_logo.png" alt="Leggy Art"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nav" aria-controls="collapse-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -102,10 +102,8 @@
                     </div>
                 </div>
             </nav>
-            <div id="delivery-banner" class="row text-center">
-                <div class="col bg-black text-white">
-                    <h4 class="my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
-                </div>            
+            <div id="delivery-banner"  class="col bg-black text-white text-center">
+                <p>Free delivery on orders over £{{ free_delivery_threshold }}!</p>         
             </div>
     
         </header>
