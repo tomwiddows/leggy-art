@@ -35,10 +35,9 @@ class Order(models.Model):
         accounting for delivery costs.
         """
 
-        product_count = request.session['product_count']
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
+        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = settings.BASELINE_DELIVERY_FEE + product_count * settings.ADDED_FEE_PER_ITEM
+            self.delivery_cost = settings.BASELINE_DELIVERY_FEE + (self.order_total * settings.EXTRA_DELIVERY_PERCENTAGE) / 100
         else:
             self.delivery_cost = 0
         self.grand_total = self.order_total + self.delivery_cost
