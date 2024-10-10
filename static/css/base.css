@@ -32,6 +32,10 @@ body {
     color: #000 !important;
 }
 
+.category-link {
+    text-decoration: none;
+}
+
 .overlay {
     height: 100vh;
     width: 100vw;
@@ -51,6 +55,7 @@ body {
 
 .category-img {
     width: 100%;
+    border: 1px, solid, #000;
 }
 
 .btt-button {
