@@ -3,19 +3,8 @@ html {
     overflow: visible;
 }
 
-@media only screen and (max-width: 640px) {
-    body {
-        background: url('/media/hero_img_sm.png') no-repeat center top;
-        background-size: contain;
-        font-family: "Yeseva One", serif;
-        font-weight: 300 !important;
-        font-style: normal;
-        overflow: auto;
-    }
-}
-
 body {
-    background: url('/media/hero_img_md.png') no-repeat center top;
+    background: url('/media/hero_img_sm.png') no-repeat center top;
     background-size: contain;
     font-family: "Yeseva One", serif;
     font-weight: 300 !important;
@@ -41,7 +30,15 @@ body {
 }
 
 .heading-height {
-    margin-top: calc(10vw / (16/10));
+    margin-top: calc(15vw / (16/10));
+}
+
+.heading-height {
+    margin-top: calc(9vw / (16/10));
+}
+
+.homepage-content {
+    margin-top: calc(30vw / (16/10));
 }
 
 .btt-button {
@@ -134,4 +131,20 @@ body {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+
+@media (min-width: 640px) {
+    body {
+        background: url('/media/hero_img_md.png') no-repeat center top;
+        background-size: contain;
+        font-family: "Yeseva One", serif;
+        font-weight: 300 !important;
+        font-style: normal;
+        overflow: auto;
+    }
+
+    .heading-height {
+        margin-top: calc(9vw / (16/10));
+    }
 }
