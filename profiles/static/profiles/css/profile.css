@@ -18,5 +18,11 @@
 .profile-form-input {
     width: 100%;
     border: 2px solid #aab7c4;
-    margin: 2px 0 2px;
+    margin: 6px 0 6px;
+    height: 30px;
+}
+
+.order-history {
+    height: 371.33px;
+    overflow: auto;
 }
