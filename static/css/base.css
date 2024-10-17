@@ -12,6 +12,7 @@ html {
 #delivery-banner {
     width: auto;
     padding: 5px 0 1px 0;
+    background-color:rgb(67, 7, 127);
 }
 
 body {
@@ -39,10 +40,11 @@ body {
 
 .overlay {
     height: 100%;
-    width: 100vw;
+    width: 100%;
     background: #ffffff;
     top: 0;
     left: 0;
+    position: fixed;
     z-index: -1;
 }
 

@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
 {% load i18n %}
 <!DOCTYPE html>
 <html>
@@ -22,7 +24,7 @@
                 </div>
             {% endif %}
             <div>
-                <strong>{% trans "Menu:" %}</strong>
+                <strong style="display:none;">{% trans "Menu:" %}</strong>
                 <ul>
                     {% if user.is_authenticated %}
                         {% url 'account_email' as email_url %}
@@ -64,23 +66,25 @@
                     {% else %}
                         {% url 'account_login' as login_url %}
                         {% if login_url %}
-                            <li>
+                            <li style="display:none;">
                                 <a href="{{ login_url }}">{% trans "Sign In" %}</a>
                             </li>
                         {% endif %}
                         {% url 'account_signup' as signup_url %}
                         {% if signup_url %}
-                            <li>
+                            <li style="display:none;">
                                 <a href="{{ signup_url }}">{% trans "Sign Up" %}</a>
                             </li>
                         {% endif %}
                     {% endif %}
                 </ul>
             </div>
-            {% block content %}
-            {% endblock content %}
+            {% block auth_content %}
+            {% endblock auth_content %}
         {% endblock body %}
         {% block extra_body %}
         {% endblock extra_body %}
     </body>
 </html>
+
+{% endblock %}
