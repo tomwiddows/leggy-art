@@ -70,8 +70,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates', 'allauth')
+            BASE_DIR / 'templates',
+            BASE_DIR / 'templates' / 'allauth',
 
         ],
         'APP_DIRS': True,
@@ -172,7 +172,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 lOGIN_URL = '/accounts/login'
-lOGIN_REDIRECT_URL = '/'
+lOGIN_REDIRECT_URL = '../profiles'
 
 
 # Stripe
