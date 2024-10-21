@@ -5,7 +5,7 @@ from django.db.models.functions import Lower
 from django.http import HttpResponseRedirect
 from urllib.parse import urlencode
 from .models import Print, Category
-
+from .forms import ProductForm
 # Create your views here.
 
 def all_prints(request):
@@ -77,3 +77,23 @@ def print_detail(request, print_id):
     }
 
     return render(request, 'products/print_detail.html', context)
+
+def add_product(request):
+    """ Add a product to the store """
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('add_product'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductForm()
+        
+    template = 'products/add_product.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
