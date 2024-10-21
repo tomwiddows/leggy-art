@@ -127,6 +127,8 @@ def edit_product(request, print_id):
     context = {
         'form': form,
         'product': product,
+        'image_1_path': product.image_1.url,
+        'image_2_path': product.image_2.url,
     }
 
     return render(request, template, context)

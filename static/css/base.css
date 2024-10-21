@@ -82,6 +82,10 @@ body {
     color: white !important;
 }
 
+.edit-product-image {
+    max-width: 40%;
+}
+
 .btn-black {
     background: black;
     color: white;
