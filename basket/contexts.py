@@ -21,6 +21,8 @@ def basket_contents(request):
                 'product': product,
             })
 
+    product_count = len(basket_items)
+
     if total < settings.FREE_DELIVERY_THRESHOLD and total != 0:
         delivery = Decimal(settings.BASELINE_DELIVERY_FEE + (total * settings.EXTRA_DELIVERY_PERCENTAGE) / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
@@ -32,6 +34,7 @@ def basket_contents(request):
     
     context = {
         'basket_items': basket_items,
+        'product_count': product_count,
         'total': total,
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,

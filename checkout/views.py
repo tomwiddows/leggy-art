@@ -67,12 +67,11 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for quantity in item_data.items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                product_size=size,
                             )
                             order_line_item.save()
                 except Print.DoesNotExist:
@@ -151,7 +150,7 @@ def checkout_success(request, order_number):
     order.user_profile = profile
     order.save()
 
-    if save_info():
+    if save_info:
         profile_data = {
             'default_phone_number': order.phone_number,
             'default_country': order.country,

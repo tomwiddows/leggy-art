@@ -186,7 +186,7 @@
                 </div>
             </div>
             <div class="row">
-                {{ if from_profile }}
+                {% if from_profile %}
                     <div class="col-12 col-lg-7 text-right">
                         <a href="{% url 'profile' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
                             <span class="icon mr-2">
@@ -195,7 +195,7 @@
                             <span class="text-uppercase">Back to profile</span>
                         </a>
                     </div>
-                {{ else }}
+                {% else %}
                     <div class="col-12 col-lg-7 text-right">
                         <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="btn btn-black rounded-0 my-2">
                             <span class="icon mr-2">
@@ -204,7 +204,7 @@
                             <span class="text-uppercase">Come back soon to see new prints!</span>
                         </a>
                     </div>
-                {{ endif }}
+                {% endif %}
             </div>
         </div>
     </div>
