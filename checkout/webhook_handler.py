@@ -9,12 +9,10 @@ from profiles.models import UserProfile
 
 import json
 import time
-
-import logging
+import stripe
 
 
 class StripeWH_Handler:
-    logger = logging.getLogger(__name__)
     """ Handle Stripe webhooks """
 
     def __init__(self, request):
@@ -36,9 +34,7 @@ class StripeWH_Handler:
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )   
-
-        logger.debug(send_mail)
+        )  
 
     def handle_event(self, event):
         """ Handle a generic/unknown/unexpected webhook event """
@@ -54,6 +50,11 @@ class StripeWH_Handler:
         pid = intent.id
         basket = intent.metadata.basket
         save_info = intent.metadata.save_info
+    
+        # Get the Charge object
+        stripe_charge = stripe.Charge.retrieve(
+            intent.latest_charge
+        )
 
         billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
