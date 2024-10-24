@@ -25,17 +25,7 @@
             <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    {% for field in form %}
-                        {% if field.name == 'image_1' %}
-                            {{ field | as_crispy_field }}
-                            <img class="edit-product-image" src="{{ image_1_path }}" alt="Image 1">
-                        {% elif field.name == 'image_2' %}
-                            {{ field | as_crispy_field }}
-                            <img class="edit-product-image" src="{{ image_2_path }}" alt="Image 2">
-                        {% else %}
-                            {{ field | as_crispy_field }}
-                        {%endif %}
-                    {% endfor %}
+                    {{ form | crispy }}
                     <div class="text-right">
                         <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
                         <button class="btn btn-black rounded-0" type="submit">Update Product</button>
@@ -44,4 +34,15 @@
             </div>            
         </div>
     </div>
+{% endblock %}
+
+{% block postload_js %}
+    {{ block.super }}
+        <script type="text/javascript">
+            $('.new-image').change(function() {
+                var file = $('.new-image')[0].files[0];
+                $('#filename').text(`Image will be set to: ${file.name}`);
+            })
+
+        </script>
 {% endblock %}
