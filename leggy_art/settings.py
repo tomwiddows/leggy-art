@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-tomwiddows-leggyart-zyexeiklff4.ws.codeinstitute-ide.net',
-    'leggy-art.herokuapp.com',
+    'leggy-art-2559f1cf9cdc.herokuapp.com'
     ]
 
 
