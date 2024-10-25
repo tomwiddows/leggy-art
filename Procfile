@@ -1,1 +1,1 @@
-web: python run.py
+web: gunicorn leggy_art.wsgi:application

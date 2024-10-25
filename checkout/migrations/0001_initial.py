@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('products', '0005_alter_print_image_1_alter_print_image_1_path_and_more'),
+        ('products', '0004_alter_print_image_1_alter_print_image_1_path_and_more'),
     ]
 
     operations = [
