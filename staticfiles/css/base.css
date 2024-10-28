@@ -1,0 +1,228 @@
+html {
+    width: 100%;
+    height: 100%;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+
+#logo {
+    width: 8em;
+}
+
+#delivery-banner {
+    width: auto;
+    padding: 5px 0 1px 0;
+    background-color:rgb(67, 7, 127);
+}
+
+body {
+    background: url('/media/hero_img_sm.png') no-repeat 0px 104px;
+    background-size: contain;
+    font-family: "Yeseva One", serif;
+    font-style: normal;
+}
+
+.white-bg {
+    background-color: #ffffff;
+}
+
+.heading-height {
+    margin-top: 65vw;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.category-link {
+    text-decoration: none;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+}
+
+.homepage-content {
+    margin-top: calc(30vw / (16/10));
+}
+
+#subheading-padding {
+    padding-left: 2em;
+}
+
+.category-img {
+    width: 100%;
+    border: 1px, solid, #000;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.edit-product-image {
+    max-width: 40%;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 9999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; 
+    border-bottom: 10px solid black;
+    position: absolute;
+    top: -10px;
+    right: 36px;
+}
+
+/* Convenience classes - colors copied from Bootstrap */
+.arrow-primary {
+    border-bottom-color: #007bff !important;
+}
+
+.arrow-secondary {
+    border-bottom-color: #6c757d !important;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.arrow-light {
+    border-bottom-color: #f8f9fa !important;
+}
+
+.arrow-dark {
+    border-bottom-color: #343a40 !important;
+}
+
+.basket-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Product Form */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+    border-color: #dc3545;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 0;
+}
+
+@media (min-width: 576px) {
+    body {
+        background: url('/media/hero_img_sm.png') no-repeat 0px 104px;
+        background-size: contain;
+        font-family: "Yeseva One", serif;
+        font-style: normal;
+        overflow: auto;
+    }
+
+    .heading-height {
+        margin-top: 70vw;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        background: url('/media/hero_img_md.png') no-repeat 0px 50px;
+        background-size: contain;
+        font-family: "Yeseva One", serif;
+        font-style: normal;
+        overflow: auto;
+    }
+
+    .heading-height {
+        margin-top: calc(9vw / (16/10));
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        background: url('/media/hero_img_md.png') no-repeat 0px 50px;
+        background-size: contain;
+        font-family: "Yeseva One", serif;
+        font-style: normal;
+        overflow: auto;
+    }
+
+    .heading-height {
+        margin-top: calc(20vw / (16/10));
+    }
+}
