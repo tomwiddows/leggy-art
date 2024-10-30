@@ -16,4 +16,4 @@ s3 = boto3.client('s3',
                   aws_secret_access_keys=os.environ.get('AWS_SECRET_ACCES_KEY')
                 )
 
-s3.put_object(Bucket='your-bucket-name', Key='test.txt', Body='Hello, world!')
+s3.put_object(Bucket='leggy_art', Key='test.txt', Body='Hello, world!')

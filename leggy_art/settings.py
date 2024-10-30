@@ -29,7 +29,8 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-tomwiddows-leggyart-zyexeiklff4.ws.codeinstitute-ide.net',
-    'leggy-art-2559f1cf9cdc.herokuapp.com'
+    'leggy-art-a938bdcf1c85.herokuapp.com',
+    'local_host'
     ]
 
 
