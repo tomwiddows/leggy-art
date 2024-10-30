@@ -157,6 +157,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+print(os.environ.get('USE_AWS'))
 if 'USE_AWS' in os.environ:
     print("AWS settings activated")
     # Bucket config
