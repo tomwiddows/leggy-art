@@ -157,7 +157,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-print(os.environ.get('USE_AWS'))
 if 'USE_AWS' in os.environ:
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
@@ -165,7 +164,6 @@ if 'USE_AWS' in os.environ:
         'CacheControl': 'max-age=94608000',
         'ContentType': 'application/octet-stream',
     }
-    print("AWS settings activated")
     # Bucket config
     AWS_STORAGE_BUCKET_NAME = 'leggy-art'
     AWS_S3_REGION_NAME = 'eu-west-2'
