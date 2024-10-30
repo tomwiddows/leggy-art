@@ -152,7 +152,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -161,7 +160,7 @@ print(os.environ.get('USE_AWS'))
 if 'USE_AWS' in os.environ:
     print("AWS settings activated")
     # Bucket config
-    AWS_STORAGE_BUCKET_NAME = 'leggy-art-1'
+    AWS_STORAGE_BUCKET_NAME = 'leggy-art'
     AWS_S3_REGION_NAME = 'eu-west-2'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
