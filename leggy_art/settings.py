@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-from custom_storages import StaticStorage, MediaStorage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -153,7 +152,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -175,16 +174,15 @@ if 'USE_AWS' in os.environ:
 
     # Static and media files
     STATICFILES_LOCATION = 'static'
-    STATICFILES_STORAGE = custom_storages.StaticStorage
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
     print(STATICFILES_STORAGE)
     MEDIAFILES_LOCATION = 'media'
-    DEFAULT_FILE_STORAGE = custom_storages.MediaStorage
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Default primary key field type
