@@ -174,11 +174,11 @@ if 'USE_AWS' in os.environ:
     print(AWS_S3_CUSTOM_DOMAIN)
 
     # Static and media files
+    STATICFILES_LOCATION = 'static'
     STATICFILES_STORAGE = custom_storages.StaticStorage
     print(STATICFILES_STORAGE)
-    STATICFILES_LOCATION = 'static'
-    DEFAULT_FILE_STORAGE = custom_storages.MediaStorage
     MEDIAFILES_LOCATION = 'media'
+    DEFAULT_FILE_STORAGE = custom_storages.MediaStorage
 
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
