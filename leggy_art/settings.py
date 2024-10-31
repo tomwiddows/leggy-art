@@ -182,8 +182,8 @@ if 'USE_AWS' in os.environ:
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
     STORAGES = {
-        "default": {"BACKEND": "leggy_art.custom_storage.MediaStorage"},
-        "staticfiles": {"BACKEND": "leggy_art.custom_storage.StaticStorage"},
+        "default": {"BACKEND": "leggy_art.custom_storages.MediaStorage"},
+        "staticfiles": {"BACKEND": "leggy_art.custom_storages.StaticStorage"},
     }
 
 
