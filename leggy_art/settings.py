@@ -13,9 +13,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from dotenv import load_dotenv
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
+print(DEBUG)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -233,3 +235,6 @@ STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 DEFAULT_FROM_EMAIL = 'leggyart@example.com'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+import django_heroku
+django_heroku.settings(locals())
