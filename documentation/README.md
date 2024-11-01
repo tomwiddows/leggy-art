@@ -1,3 +1,7 @@
+# Leggy Art Readme
+
+Welcome to the Leggy Art website. As part of my Level 5 Web Development Diploma with Code Institute, I have been tasked with creating and deploying a fully-functional e-commerce site. The 
+
 ## User Stories
 
 ### New Potential Customers
@@ -40,3 +44,27 @@
 - As a site administrator, I should be able to add more prints to the website 
 - As a site administrator, I should be able to see when a customer has purchased a print
 - As a site administrator, I should be able to alter the availability of certain prints or print sizes
+
+## Wireframes
+
+<table>
+    <tr>
+        <th>
+            Small screens
+        </th>
+        <th>
+            Medium screens and larger
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <img src="/workspace/leggy-art/media/wireframe_sm.png" height="300px" style="padding:5px">
+        </td>
+        <td>
+            <img src="/workspace/leggy-art/media/wireframe_lg.png" height="300px" style="padding:5px">
+        </td>
+    </tr>
+</table>
+
+When creating the wireframes, the idea was to have the same page layout for medium screens and above. As seen from the final design above, this decision was slightly altered.
+
