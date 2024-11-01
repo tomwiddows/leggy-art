@@ -32,10 +32,10 @@ class Print(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     orientation = models.CharField(max_length=1, choices=ORIENTATION_CHOICES, default='S')
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    image_1_path = models.CharField(max_length=1024)
-    image_1 = models.ImageField()
-    image_2_path = models.CharField(max_length=1024)
-    image_2 = models.ImageField()
+    image_1_path = models.CharField(max_length=1024, default='No Image')
+    image_1 = models.ImageField(default='No Image')
+    image_2_path = models.CharField(max_length=1024, default='No Image')
+    image_2 = models.ImageField(default='No Image')
 
     def __str__(self):
         return self.name

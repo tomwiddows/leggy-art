@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 import dj_database_url
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = 'DEVELOPMENT' in os.environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,10 +25,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+SECRET_KEY = os.environ.get('SECRET_KEY')
+if SECRET_KEY:
+    print('SECRET_KEY found!')
+else:
+    print('SECRET_KEY missing!')
 
 ALLOWED_HOSTS = [
     '8000-tomwiddows-leggyart-zyexeiklff4.ws.codeinstitute-ide.net',
@@ -204,7 +208,10 @@ SOCIALACCOUNT_PROVIDERS = {}
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-tomwiddows-leggyart-zyexeiklff4.ws.codeinstitute-ide.net']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-tomwiddows-leggyart-zyexeiklff4.ws.codeinstitute-ide.net',
+    'https://leggy-art-a938bdcf1c85.herokuapp.com/'
+]
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
