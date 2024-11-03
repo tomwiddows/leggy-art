@@ -27,7 +27,7 @@ else:
 
     SECRET_KEY = os.getenv("SECRET_KEY")
     print('secret key acquired from .env')
-    DEBUG = "True"
+    DEBUG = 'True'
     DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
