@@ -164,39 +164,37 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-# STATIC_URL = '/static/'
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+#STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
-# MEDIA_URL = '/media/'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+#MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-if 'USE_AWS' in os.environ:
-    # Cache control
-    AWS_S3_OBJECT_PARAMETERS = {
-        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-        'CacheControl': 'max-age=94608000',
-    }
-    # Bucket config
-    AWS_STORAGE_BUCKET_NAME = 'leggy-art'
-    AWS_S3_REGION_NAME = 'eu-west-2'
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+#if 'USE_AWS' in os.environ:
+# Cache control
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
+# Bucket config
+AWS_STORAGE_BUCKET_NAME = 'leggy-art'
+AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-    # Static and media files
-    STATICFILES_LOCATION = 'static'
-    MEDIAFILES_LOCATION = 'media'
+# Static and media files
+STATICFILES_LOCATION = 'static'
+MEDIAFILES_LOCATION = 'media'
 
-    # Override static and media URLs in production
-    # STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-    # MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+# Override static and media URLs in production
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-    STORAGES = {
-        "default": {"BACKEND": "leggy_art.custom_storages.MediaStorage"},
-        "staticfiles": {"BACKEND": "leggy_art.custom_storages.StaticStorage"},
-    }
+STORAGES = {
+    "default": {"BACKEND": "leggy_art.custom_storages.MediaStorage"},
+    "staticfiles": {"BACKEND": "leggy_art.custom_storages.StaticStorage"},
+}
 
 
 
