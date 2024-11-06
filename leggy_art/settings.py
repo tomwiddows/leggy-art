@@ -241,7 +241,7 @@ if os.environ.get('DEVELOPMENT').lower() == 'true':
     DEFAULT_FROM_EMAIL = 'leggyartshop@gmail.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_USE_SSL = True
+    EMAIL_USE_TLS = True
     EMAIL_PORT = 587
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
