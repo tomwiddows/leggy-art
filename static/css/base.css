@@ -202,7 +202,7 @@ body {
 @media (min-width: 768px) {
     body {
         background: url('/media/hero_img_md.png') no-repeat 0px 50px;
-        background-size: cover;
+        background-size: contain;
         font-family: "Yeseva One", serif;
         font-style: normal;
         overflow: auto;
@@ -216,7 +216,7 @@ body {
 @media (min-width: 992px) {
     body {
         background: url('/media/hero_img_md.png') no-repeat 0px 50px;
-        background-size: cover;
+        background-size: contain;
         font-family: "Yeseva One", serif;
         font-style: normal;
         overflow: auto;
