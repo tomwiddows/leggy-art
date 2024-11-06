@@ -61,6 +61,17 @@ body {
     border: 1px, solid, #000;
 }
 
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+.footer {
+    position: fixed;
+    bottom: 0;
+}
+
 .btt-button {
     height: 42px;
     width: 42px;

@@ -129,9 +129,29 @@
 
         {% block page_header %}
         {% endblock %}
-
+        
+        <div class="wrapper">
         {% block content %}
         {% endblock %}
+        </div>
+        
+        <hr>
+        <footer class="container-fluid footer">
+            
+            <div class="row">
+                <div class="col-4 text-start">
+                    <p>Leggy Art 2024</p>
+                </div>
+                <div class="col-4 text-center">
+                    <a href="https://www.instagram.com/mr_leggy_d_1st/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+                <div class="col-4 text-end">
+                    <p>Created for <a href="https://codeinstitute.net/nl/" target="_blank">CI</a> diploma</p>
+                </div>
+            </div>
+        </footer>
 
         {% block postload_js %}
             <script type="text/javascript">
