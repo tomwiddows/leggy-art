@@ -188,7 +188,7 @@ body {
 @media (min-width: 576px) {
     body {
         background: url('/media/hero_img_sm.png') no-repeat 0px 104px;
-        background-size: contain;
+        background-size: cover;
         font-family: "Yeseva One", serif;
         font-style: normal;
         overflow: auto;
@@ -199,10 +199,10 @@ body {
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 590px) {
     body {
         background: url('/media/hero_img_md.png') no-repeat 0px 50px;
-        background-size: contain;
+        background-size: cover;
         font-family: "Yeseva One", serif;
         font-style: normal;
         overflow: auto;
@@ -216,7 +216,7 @@ body {
 @media (min-width: 992px) {
     body {
         background: url('/media/hero_img_md.png') no-repeat 0px 50px;
-        background-size: contain;
+        background-size: cover;
         font-family: "Yeseva One", serif;
         font-style: normal;
         overflow: auto;
