@@ -65,7 +65,7 @@
                                 </form>
                             </li>
                             <li class="nav-item ">
-                                <a href="s" class="nav-link">About</a>
+                                <a href="{% url 'about' %}" class="nav-link">About</a>
                             </li>
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
@@ -89,13 +89,13 @@
                             {% endif %}
                         </ul>
                         <div class="nav-item text-center">
-                            <a href="{% url 'view_basket' %}" class="nav-link {% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}">
+                            <a href="{% url 'view_basket' %}" class="nav-link">
                                 <i class="fas fa-shopping-bag fa-lg"></i>
                                 <p class="my-0">
                                     {% if grand_total %}
-                                        ${{ grand_total|floatformat:2 }}
+                                        £{{ grand_total|floatformat:2 }}
                                     {% else %}
-                                        $0.00
+                                        £0.00
                                     {% endif %}
                                 </p>
                             </a>
