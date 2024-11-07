@@ -119,6 +119,10 @@ body {
     right: 10px;
 }
 
+.product-card:hover .product-name {
+    color: rgb(89, 152, 199);
+}
+
 .btt-link,
 .update-link,
 .remove-item {
