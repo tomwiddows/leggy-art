@@ -78,7 +78,11 @@ body {
 }
 
 .category-link:hover h5 {
-    color: rgb(67, 7, 127);
+    color: rgb(144, 30, 201);
+}
+
+.category-link:hover img {
+    border: rgb(144, 30, 201) solid 2px;
 }
 
 .homepage-content {
