@@ -181,9 +181,11 @@ def checkout_success(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)  # Get the order using the order number
 
     # Fetch the user's profile and link it to the order
-    profile = UserProfile.objects.get(user=request.user)
-    order.user_profile = profile
-    order.save()
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        order.save()
 
     if save_info:  # If the user opted to save their info, update their profile with the order details
         profile_data = {

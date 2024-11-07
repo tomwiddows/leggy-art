@@ -70,7 +70,13 @@
                                         </a>
                                     </td>
                                     {% if request.user.is_superuser %}
-                                        <td>{{ order.user_profile.user.username }}</td>
+                                        <td>
+                                            {% if order.user_profile %}
+                                                {{ order.user_profile.user.username }}
+                                            {% else %}
+                                                Guest user
+                                            {% endif %}
+                                        </td>
                                     {% endif %}
                                     <td>{{ order.date }}</td>
                                     <td>
