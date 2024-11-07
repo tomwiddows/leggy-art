@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 # Import models and forms for user profiles
 from .models import UserProfile
 from .forms import UserProfileForm
+from checkout.models import Order
 
 
 @login_required
@@ -33,10 +34,8 @@ def profile(request):
     if not request.user.is_superuser:
         orders = profile.orders.all()
     else:
-        all_profiles = UserProfile.objects.all()
-        orders = []
-        for profile in all_profiles:
-            orders.extend(profile.orders.all())
+        orders = Order.objects.all()
+
 
     # Define the context for the template
     template = 'profiles/profile.html'
