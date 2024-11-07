@@ -26,7 +26,6 @@ else:
     load_dotenv()
 
     SECRET_KEY = os.getenv("SECRET_KEY")
-    print('secret key acquired from .env')
     DEBUG = 'True'
     DATABASE_URL = os.getenv("DATABASE_URL")
 
@@ -246,5 +245,4 @@ else:
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-    print(EMAIL_HOST_PASSWORD)
     DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
