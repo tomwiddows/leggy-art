@@ -30,13 +30,16 @@ def profile(request):
         form = UserProfileForm(instance=profile)
 
     # Retrieve the user's past orders
-    orders = profile.orders.all()
+    if not request.user.is_superuser:
+        orders = profile.orders.all()
+    else:
+        orders = orders.all()
 
     # Define the context for the template
     template = 'profiles/profile.html'
     context = {
         'form': form,  # The profile form (for updating user details)
-        'orders': orders,  # The user's order history
+        'orders': orders,  # The user's order history, or if superuser, all orders from the site
         'on_profile_page': True,  # Flag to indicate the current page is the profile page
     }
 
