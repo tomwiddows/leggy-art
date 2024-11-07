@@ -77,7 +77,7 @@ body {
     text-decoration: none;
 }
 
-.category-link:hover {
+.category-link:hover h5 {
     color: rgb(67, 7, 127);
 }
 
