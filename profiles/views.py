@@ -33,7 +33,8 @@ def profile(request):
     if not request.user.is_superuser:
         orders = profile.orders.all()
     else:
-        orders = orders.all()
+        all_profiles = UserProfile.objects.all()
+        orders = all_profiles.orders.all()
 
     # Define the context for the template
     template = 'profiles/profile.html'
