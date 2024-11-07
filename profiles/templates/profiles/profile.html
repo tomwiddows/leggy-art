@@ -50,10 +50,10 @@
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
-                                {% if request.user.is_superuser %}
-                                    <th>Profile</th>
-                                {% endif %}
                                 <th>Order Number</th>
+                                {% if request.user.is_superuser %}
+                                    <th>User Profile</th>
+                                {% endif %}
                                 <th>Date</th>
                                 <th>Title</th>
                                 <th>Order Total</th>
@@ -61,19 +61,17 @@
                         </thead>
                         <tbody>
                             <!-- Loop through all orders and display each order's details -->
-                            <tr>
-                                {% if request.user.is_superuser %}
-                                    {% for profile in all_profiles %}
-                                        <td>{{ profile }}</td>
-                                    {% endfor %}
-                                {% endif %}
-                                {% for order in orders %}
+                            {% for order in orders %}
+                                <tr>
                                     <td>
                                         <!-- Link to order details page with truncated order number -->
                                         <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
                                             {{ order.order_number|truncatechars:6 }}
                                         </a>
                                     </td>
+                                    {% if request.user.is_superuser %}
+                                        <td>{{ order.user_profile.user.username }}</td>
+                                    {% endif %}
                                     <td>{{ order.date }}</td>
                                     <td>
                                         <!-- List the products in the order -->
@@ -86,8 +84,8 @@
                                         </ul>
                                     </td>
                                     <td>£{{ order.grand_total }}</td>                                        
-                                {% endfor %}
-                            </tr>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
