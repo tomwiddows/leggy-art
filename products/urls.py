@@ -1,6 +1,7 @@
-from django.urls import path
-from . import views
+from django.urls import path # Import the path function for routing URLs
+from . import views # Import views from basket app
 
+# Define url paths for all links within products app
 urlpatterns = [
     path('', views.all_prints, name='products'),
     path('<int:print_id>/', views.print_detail, name='product_detail'),

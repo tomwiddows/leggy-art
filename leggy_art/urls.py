@@ -20,7 +20,7 @@ from django.conf import settings  # Import Django settings, allowing access to c
 from django.conf.urls.static import static  # Import the static function to serve static files during development
 
 
-# Configure url path for each app...
+# Configure url paths for each app...
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
