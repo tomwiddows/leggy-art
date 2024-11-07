@@ -1,26 +1,39 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} <!-- Extends the base layout (inherits header, footer, etc.) -->
+{% load static %} <!-- Loads the static files -->
 
 {% block content %}
-<div class="overlay"></div>
-<h2 class="text-center">About</h2>
 
-<div class="about-content">
+    <!-- Background overlay -->
+    <div class="overlay"></div>
+    <h2 class="text-center">About</h2>
 
-    <h3>The Artist</h3>
-    
-    <h3>The Site</h3>
-    
-    <P>DISCLAIMER</P>
-    <P>
-        This site was made for educational purposes only. I, the developer, have used my brother's artwork to create 
-        an e-commerce site for my final project with Code Institute. The artwork is real but many of the prints cannot 
-        actually be sold due to copywright reasons. The site is not an actual business' site and the payment 
-        system was created using Stripe Payments' test mode. This means that if you were to use your real credit/debit 
-        card information upon checkout, no funds will be taken from your account. Security was an integral part of the 
-        development process and Stripe Payments does get used to handle real payment requests so your information would be 
-        safe. With that said, please do not use your actual details.
-    </P>
-</div>
+    <div class="about-content">
+
+        <h3>The Artist</h3>
+        <p>Hi,
+            I’m Leggy
+            I’m a young artist who’s looking to turn a passion for art into a career. I post my art to
+            Instagram under the username of mr_leggy_d_1st, sharing drawing of superheroes, anime,
+            and anything else that may catch my interest. For original concepts, I draw inspiration from
+            my longtime love of superheroes and anime to come up with characters, as well as the world
+            around me and social media, such as my koi fish and skulls pieces. I primarily work with
+            coloured pencils to make my art – it is the medium I have grown most used to over the years
+            - but I also occasionally branch out into other mediums such art watercolour pencils (wow,
+            such variety) and coloured pens.
+        </p>
+        
+        <h3>The Site</h3>
+        
+        <P>DISCLAIMER!</P>
+        <P>
+            This site was made for educational purposes only. I, the developer, have used my brother's artwork to create 
+            an e-commerce site for my final project with Code Institute. The artwork is real but many of the prints cannot 
+            actually be sold due to copywright reasons. The site is not an actual business' site and the payment 
+            system was created using Stripe Payments' test mode. This means that if you were to use your real credit/debit 
+            card information upon checkout, no funds will be taken from your account. Security was an integral part of the 
+            development process and Stripe Payments does get used to handle real payment requests so your information would be 
+            safe. With that said, please do not use your actual details.
+        </P>
+    </div>
 
 {% endblock %}

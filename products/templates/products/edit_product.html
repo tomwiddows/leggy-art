@@ -1,7 +1,8 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends 'base.html' %} <!-- Extends the base layout (inherits header, footer, etc.) -->
+{% load static %} <!-- Loads the static files -->
 
 {% block page_header %}
+    <!-- Custom header section for the page -->
     <div class="container header-container">
         <div class="row">
             <div class="col"></div>
@@ -10,10 +11,14 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Background overlay -->
     <div class="overlay"></div>
+
+    <!-- Main container for the edit product form -->
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
+                <!-- Page header for the Edit Product section -->
                 <hr>
                 <h2 class="logo-font mb-4">Product Management</h2>
                 <h5 class="text-muted">Edit a Product</h5>
@@ -21,13 +26,22 @@
             </div>
         </div>
 
+        <!-- Form for editing the selected product -->
         <div class="row">
             <div class="col-12 col-md-6">
+                <!-- The form for editing a product, using POST method and submitting to the URL with the product's ID -->
                 <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
+                    {% csrf_token %} <!-- CSRF token for security (prevents cross-site request forgery) -->
+
+                    <!-- Render the product edit form fields with Crispy Forms for styling -->
                     {{ form | crispy }}
+                    
+                    <!-- Form buttons for cancel and update -->
                     <div class="text-right">
+                        <!-- Cancel button: redirects back to the product list page -->
                         <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                        
+                        <!-- Submit button: updates the product information -->
                         <button class="btn btn-black rounded-0" type="submit">Update Product</button>
                     </div>
                 </form>
@@ -38,11 +52,12 @@
 
 {% block postload_js %}
     {{ block.super }}
-        <script type="text/javascript">
-            $('.new-image').change(function() {
-                var file = $('.new-image')[0].files[0];
-                $('#filename').text(`Image will be set to: ${file.name}`);
-            })
-
-        </script>
+    <!-- JavaScript for handling file input and showing the selected file's name -->
+    <script type="text/javascript">
+        // When a new image is selected, show the filename in the text element with ID 'filename'
+        $('.new-image').change(function() {
+            var file = $('.new-image')[0].files[0]; // Get the selected file
+            $('#filename').text(`Image will be set to: ${file.name}`); // Display the filename
+        })
+    </script>
 {% endblock %}

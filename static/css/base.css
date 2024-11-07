@@ -1,3 +1,5 @@
+/* Whole site styles */
+
 html {
     width: 100%;
     height: 100%;
@@ -22,20 +24,8 @@ body {
     font-style: normal;
 }
 
-.white-bg {
-    background-color: #ffffff;
-}
-
-.heading-height {
-    margin-top: 65vw;
-}
-
 .text-black {
     color: #000 !important;
-}
-
-.category-link {
-    text-decoration: none;
 }
 
 .overlay {
@@ -46,6 +36,45 @@ body {
     left: 0;
     position: fixed;
     z-index: -1;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 9999;
+}
+
+/* index.html styles */
+
+.white-bg {
+    background-color: #ffffff;
+}
+
+.heading-height {
+    margin-top: 65vw;
+}
+
+.category-link {
+    text-decoration: none;
 }
 
 .homepage-content {
@@ -61,11 +90,13 @@ body {
     border: 1px, solid, #000;
 }
 
-.wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+/* about.html styles */
+
+.about-content {
+    padding: 5vw 0 5vw;
 }
+
+/* prints.html and print_detail.html styles */
 
 .btt-button {
     height: 42px;
@@ -81,28 +112,11 @@ body {
     cursor: pointer;
 }
 
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    background: black;
-    color: white !important;
-}
-
 .edit-product-image {
     max-width: 40%;
 }
 
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 9999;
-}
+/* Toast styles */
 
 .custom-toast {
     overflow: visible;
@@ -112,7 +126,7 @@ body {
     height: 2px;
 }
 
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+    /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
     width: 0; 
     height: 0; 
@@ -124,7 +138,7 @@ body {
     right: 36px;
 }
 
-/* Convenience classes - colors copied from Bootstrap */
+    /* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
@@ -163,7 +177,7 @@ body {
     overflow-y: auto;
 }
 
-/* Product Form */
+/* Product form styles */
 
 .btn-file {
     position: relative;
@@ -190,6 +204,8 @@ body {
     border-color: #dc3545;
     border-radius: 0;
 }
+
+/* MEDIA QUERIES */
 
 @media (min-width: 576px) {
     body {

@@ -1,19 +1,25 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} <!-- Extends the base layout (inherits header, footer, etc.) -->
+{% load static %} <!-- Loads the static files -->
 
 {% block content %}
+    <!-- Background overlay -->
     <div class="overlay"></div>
+
+    <!-- Main container for the shopping basket -->
     <div class="container-fluid mb-2">
         <div class="row">
             <div class="col">
+                <!-- Basket header section -->
                 <hr>
                 <h2 class="mb-2">Shopping Basket</h2>
                 <hr>
             </div>
         </div>
+
         <div class="row"></div>
             <div class="col">
                 {% if basket_items %}
+                    <!-- Basket items table -->
                     <div class="table-responsive rounded-0">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
@@ -26,23 +32,33 @@
                                 </tr>
                             </thead>
 
+                            <!-- Loop through each item in the basket -->
                             {% for item in basket_items %}
                                 <tr>
+                                    <!-- Product image column -->
                                     <td class="p-3 w-25">
                                         <img class="img-fluid rounded" src="{{ item.product.image_1.url }}">
                                     </td>
+
+                                    <!-- Product details column -->
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                         <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                                     </td>
+
+                                    <!-- Product price column -->
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.product.price }}</p>
                                     </td>
+
+                                    <!-- Quantity input and controls column -->
                                     <td class="py-3 w-25">
+                                        <!-- Form for updating quantity -->
                                         <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">
                                                 <div class="input-group">
+                                                    <!-- Decrement quantity button -->
                                                     <div class="input-group-prepend">
                                                         <button class="decrement-qty btn btn-sm btn-black rounded-0" 
                                                             data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
@@ -51,10 +67,12 @@
                                                             </span>
                                                         </button>
                                                     </div>
+                                                    <!-- Quantity input field -->
                                                     <input class="form-control form-control-sm qty_input" type="number"
                                                         name="quantity" value="{{ item.quantity }}" min="1" max="99"
                                                         data-item_id="{{ item.item_id }}"
                                                         id="id_qty_{{ item.item_id }}">
+                                                    <!-- Increment quantity button -->
                                                     <div class="input-group-append">
                                                         <button class="increment-qty btn btn-sm btn-black rounded-0"
                                                             data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
@@ -66,19 +84,27 @@
                                                 </div>
                                             </div>
                                         </form>
+
+                                        <!-- Links for updating quantity and removing item -->
                                         <a class="update-link text-info"><small>Update</small></a>
                                         <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
                                     </td>
+
+                                    <!-- Subtotal price for the item column -->
                                     <td class="py-3">
                                         <p class="my-0">£{{ item.subtotal }}</p>
                                     </td>
                                 </tr>
                             {% endfor %}
+
+                            <!-- Basket totals row -->
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
                                     <h6><strong>Basket Total: £{{ total|floatformat:2 }}</strong></h6>
                                     <h6>Delivery: £{{ delivery|floatformat:2 }}</h6>
                                     <h4 class="mt-4"><strong>Grand Total: £{{ grand_total|floatformat:2 }}</strong></h4>
+                                    
+                                    <!-- Display free delivery offer if applicable -->
                                     {% if free_delivery_delta > 0 %}
                                         <p class="mb-1 text-danger">
                                             You could get free delivery by spending just <strong>£{{ free_delivery_delta }}</strong> more!
@@ -86,6 +112,8 @@
                                     {% endif %}
                                 </td>
                             </tr>
+
+                            <!-- Buttons for continuing shopping or proceeding to checkout -->
                             <tr>
                                 <td colspan="5" class="text-right">
                                     <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
@@ -105,7 +133,8 @@
                         </table>
                     </div>
                 {% else %}
-                    <p class="lead mb-5">Your basket is emplty.</p>
+                    <!-- If the basket is empty -->
+                    <p class="lead mb-5">Your basket is empty.</p>
                     <a href="{% url 'products' %}" class="btn btn-outline-black btn lg">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
@@ -119,26 +148,30 @@
 {% endblock %}
 
 {% block postload_js %}
-{{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
-    <script type="text/javascript">
-        // Remove item and reload on click
-        $('.remove-item').click(function(e) {
-            var csrfToken = "{{ csrf_token }}";
-            var itemId = $(this).attr('id').split('remove_')[1];
-            var url = `/basket/remove/${itemId}/`;
-            var data = {'csrfmiddlewaretoken': csrfToken};
+    {{ block.super }}
+    <!-- Include the quantity input script for controlling item quantity in the basket -->
+    {% include 'products/includes/quantity_input_script.html' %}
 
+    <!-- Custom JavaScript for basket interactions -->
+    <script type="text/javascript">
+        // Remove item from basket and reload the page
+        $('.remove-item').click(function(e) {
+            var csrfToken = "{{ csrf_token }}"; // CSRF token for security
+            var itemId = $(this).attr('id').split('remove_')[1]; // Get the item ID from the button's ID
+            var url = `/basket/remove/${itemId}/`; // URL for item removal
+            var data = {'csrfmiddlewaretoken': csrfToken}; // Data to be sent with the POST request
+
+            // Send the POST request to remove the item and reload the page upon success
             $.post(url, data)
             .done(function() {
-                location.reload();
+                location.reload(); // Reload the page to reflect the changes
             });
         })
 
-        // Update quantity on click
+        // Submit the form to update the item quantity when the "Update" link is clicked
         $('.update-link').click(function(e) {
-            var form = $(this).prev('.update-form');
-            form.submit();
+            var form = $(this).prev('.update-form'); // Find the previous form element
+            form.submit(); // Submit the form to update the quantity
         })
     </script>
 {% endblock %}

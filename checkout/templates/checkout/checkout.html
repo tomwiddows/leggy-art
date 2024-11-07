@@ -1,12 +1,14 @@
-{% extends "base.html" %}
-{% load static %}
-{% load basket_tools %}
+{% extends 'base.html' %} <!-- Extends the base layout (inherits header, footer, etc.) -->
+{% load static %} <!-- Loads the static files -->
+{% load basket_tools %} <!-- Loads custom basket tools, such as calculating item subtotals -->
 
 {% block extra_css %}
+    <!-- Adds custom CSS for the checkout page -->
     <link rel="stylesheet" href="{% static '/checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block page_header %}
+    <!-- Page header with container -->
     <div class="container header-container">
         <div class="row">
             <div class="col"></div>
@@ -15,16 +17,21 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Background overlay -->
     <div class="overlay"></div>
+
+    <!-- Main checkout container -->
     <div class="container">
         <div class="row">
             <div class="col">
+                <!-- Checkout header -->
                 <hr>
                 <h2 class="logo-font mb-4">Checkout</h2>
                 <hr>
             </div>
         </div>
 
+        <!-- Order summary section -->
         <div class="row">
             <div class="col-12 col-lg-6 order-lg-last mb-5">
                 <p class="text-muted">Order Summary ({{ product_count }})</p>
@@ -36,23 +43,34 @@
                         <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                     </div>
                 </div>
+
+                <!-- Loop through each item in the basket and display it -->
                 {% for item in basket_items %}
                     <div class="row">
+                        <!-- Product image column -->
                         <div class="col-2 mb-1">
                             <a href="{% url 'product_detail' item.product.id %}">
                                 <img class="w-100" src="{{ item.product.image_1.url }}" alt="{{ product.name }}">
                             </a>
                         </div>
+
+                        <!-- Product details column -->
                         <div class="col-7">
                             <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                         </div>
+
+                        <!-- Subtotal for the item column -->
                         <div class="col-3 text-right">
                             <p class="my-0 small text-muted">£{{ item.product.price | calc_subtotal:item.quantity }}</p>
                         </div>
                     </div>
                 {% endfor %}
+
+                <!-- Divider between order items and total -->
                 <hr class="my-0">
+                
+                <!-- Order total section -->
                 <div class="row text-black text-right">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
@@ -66,15 +84,23 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Checkout form for user details and payment -->
             <div class="col-12 col-lg-6">
                 <p class="text-muted">Please fill out the form below to complete your order</p>
+
+                <!-- Form for submitting checkout details -->
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
+
+                    <!-- User details section -->
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
+
+                    <!-- Delivery information section -->
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
                         {{ order_form.phone_number | as_crispy_field }}
@@ -84,6 +110,8 @@
                         {{ order_form.county | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
+
+                        <!-- Option to save delivery information for authenticated users -->
                         <div class="form-check form-check-inline float-right mr-0">
                             {% if user.is_authenticated %}
                                 <label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
@@ -96,15 +124,18 @@
                             {% endif %}
                         </div>
                     </fieldset>
+
+                    <!-- Payment section with Stripe card element -->
                     <fieldset class="px-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
-                        <!-- A Stripe card element will go here -->
+                        <!-- Placeholder for Stripe card element -->
                         <div class="mb-3" id="card-element"></div>
                         <!-- Used to display form errors -->
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
 
+                    <!-- Submit button for completing the order -->
                     <div class="submit-button text-right mt-5 mb-2">                    
                         <a href="{% url 'view_basket' %}" class="btn btn-outline-black rounded-0">
                             <span class="icon">
@@ -129,6 +160,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Loading spinner overlay while processing the payment -->
     <div id="loading-overlay">
         <h1 class="text-light logo-font loading-spinner">
             <span class="icon">
@@ -140,7 +173,11 @@
 
 {% block postload_js %}
     {{ block.super }}
+
+    <!-- Pass Stripe public key and client secret to JavaScript -->
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
+
+    <!-- Include Stripe elements JavaScript -->
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
