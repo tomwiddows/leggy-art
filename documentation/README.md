@@ -29,7 +29,6 @@ Welcome to the Leggy Art website. As part of my Level 5 Web Development Diploma 
 
 - As a returning shopper, I want to be able to view my profile page
 - As a returning shopper, I want to be able to view my previosuly purchased products see reviews and comments I have left on my products
-- As a returning shopper, I want to be able to see recently added products
 
 ### All Potential Customers
 
@@ -42,7 +41,7 @@ Welcome to the Leggy Art website. As part of my Level 5 Web Development Diploma 
 - As a site administrator, I should be able to navigate the website using the links, so that I can ensure that all pages and links are working as they should.
 - As a site administrator, I should be able to add more prints to the website 
 - As a site administrator, I should be able to see when a customer has purchased a print
-- As a site administrator, I should be able to alter the availability of certain prints or print sizes
+- As a site administrator, I should be able to alter the availability of certain prints 
 
 ## UX
 

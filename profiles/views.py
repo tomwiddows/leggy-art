@@ -13,6 +13,7 @@ def profile(request):
     """ Display the user's profile and allow updating their details. """
     
     # Retrieve the UserProfile object for the current user (or 404 if not found)
+    profile = get_object_or_404(UserProfile, user=request.user)
 
     # Handle the form submission (when method is POST)
     if request.method == 'POST':
@@ -30,7 +31,6 @@ def profile(request):
 
     # Retrieve the user's past orders
     if not request.user.is_superuser:
-        profile = get_object_or_404(UserProfile, user=request.user)
         orders = profile.orders.all()
     else:
         all_profiles = UserProfile.objects.all()
