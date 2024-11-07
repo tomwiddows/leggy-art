@@ -1,13 +1,28 @@
+<!-- Toast container for displaying an error message -->
 <div class="toast custom-toast rounded-0 border-top-0" data-bs-autohide="false"></div>
+
+    <!-- Arrow pointing upwards from the toast -->
     <div class="arrow-up arrow-info"></div>
+
+    <!-- The colored band at the top of the toast, blue for info -->
     <div class="w-100 toast-capper bg-info"></div>
+
+    <!-- The header of the toast, containing the title and close button -->
     <div class="toast-header bg-white text-dark">
+
+        <!-- The main title of the toast -->
         <strong class="mr-auto">Alert!</strong>
+
+        <!-- Close button to dismiss the toast -->
         <button type="button" class="ml-2 mb-1 close text-dark" data-bs-dismiss="toast" aria-label="Close">
+            <!-- The '×' symbol used to close the toast -->
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+
+    <!-- The body of the toast, which displays the message -->
     <div class="toast-body bg-white">
+        <!-- Displays the info message dynamically passed to the template -->
         {{ message }}        
     </div>
 </div>
