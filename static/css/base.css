@@ -77,6 +77,10 @@ body {
     text-decoration: none;
 }
 
+.category-link:hover {
+    color: rgb(67, 7, 127);
+}
+
 .homepage-content {
     margin-top: calc(30vw / (16/10));
 }
