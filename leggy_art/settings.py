@@ -10,21 +10,25 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from pathlib import Path
-import os
-import dj_database_url
-from dotenv import load_dotenv
+from pathlib import Path  # Import the Path class from pathlib module for working with file paths
+import os  # Import os module to interact with the operating system
+import dj_database_url  # Import dj_database_url, a utility to configure the database settings from a URL
+from dotenv import load_dotenv  # Imports load_dotenv from the dotenv package, used to load environment variables from .env file
 
+
+# Set variable to later check if Dyno is running
 IS_HEROKU = 'DYNO' in os.environ
 
+# If Dyno is running, access SECRET_KEY from heroku
 if IS_HEROKU:
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = 'DEVELOPMENT' in os.environ
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = os.environ.get('SECRET_KEY')
+
+# If not, access from local .env file
 else:
     load_dotenv()
-
     SECRET_KEY = os.getenv("SECRET_KEY")
     DEBUG = 'True'
     DATABASE_URL = os.getenv("DATABASE_URL")
@@ -36,8 +40,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-
-
+# Allow local server and Heroku deployed site
 ALLOWED_HOSTS = [
     '8000-tomwiddows-leggyart-zyexeiklff4.ws.codeinstitute-ide.net',
     'leggy-art-a938bdcf1c85.herokuapp.com',
@@ -83,6 +86,7 @@ ROOT_URLCONF = 'leggy_art.urls'
 
 CRISPY_FORMS_PACK = 'bootstrap5'
 
+# Configure templates and context processors
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -186,10 +190,11 @@ AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 STATICFILES_LOCATION = 'static'
 MEDIAFILES_LOCATION = 'media'
 
-# Override static and media URLs in production
+# Static and media urls
 STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
+# Set storage file for collectstatic process
 STORAGES = {
     "default": {"BACKEND": "leggy_art.custom_storages.MediaStorage"},
     "staticfiles": {"BACKEND": "leggy_art.custom_storages.StaticStorage"},
@@ -212,11 +217,13 @@ AUTHENTICATION_BACKENDS = [
 
 SOCIALACCOUNT_PROVIDERS = {}
 
+# Trust local server and Heroku deployed site
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-tomwiddows-leggyart-zyexeiklff4.ws.codeinstitute-ide.net',
     'https://leggy-art-a938bdcf1c85.herokuapp.com/'
 ]
 
+# Signup settings
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
@@ -235,6 +242,7 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
+# Confirmation email settings. If in development, print emails to console. if not in development, send real email
 if os.environ.get('DEVELOPMENT').lower() == 'true':
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'leggyartshop@gmail.com'
