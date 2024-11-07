@@ -66,11 +66,6 @@ body {
     display: flex;
     flex-direction: column;
 }
-  
-.footer {
-    position: fixed;
-    bottom: 0;
-}
 
 .btt-button {
     height: 42px;
