@@ -34,7 +34,9 @@ def profile(request):
         orders = profile.orders.all()
     else:
         all_profiles = UserProfile.objects.all()
-        orders = all_profiles.orders.all()
+        orders = []
+        for profile in all_profiles:
+            orders.extend(profile.orders.all())
 
     # Define the context for the template
     template = 'profiles/profile.html'
