@@ -50,6 +50,9 @@
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
+                                {% if request.user.is_superuser %}
+                                    <th>Profile</th>
+                                {% endif %}
                                 <th>Order Number</th>
                                 <th>Date</th>
                                 <th>Title</th>
@@ -58,8 +61,13 @@
                         </thead>
                         <tbody>
                             <!-- Loop through all orders and display each order's details -->
-                            {% for order in orders %}
-                                <tr>
+                            <tr>
+                                {% if request.user.is_superuser %}
+                                    {% for profile in all_profiles %}
+                                        <td>{{ profile }}</td>
+                                    {% endfor %}
+                                {% endif %}
+                                {% for order in orders %}
                                     <td>
                                         <!-- Link to order details page with truncated order number -->
                                         <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
@@ -78,8 +86,8 @@
                                         </ul>
                                     </td>
                                     <td>£{{ order.grand_total }}</td>                                        
-                                </tr>
-                            {% endfor %}
+                                {% endfor %}
+                            </tr>
                         </tbody>
                     </table>
                 </div>
