@@ -2,27 +2,43 @@
 
 ## User Stories
 
-## Registration
+### Navigation
+
+- As a new shopper, I want the site navigation to clear and intuitive
+
+The site has been designed with accessibility in mind. There should be a clear indication that there is a link when the mouse hovers over it. the shop now button, category links and product links change colour when hovered over. the new colour is light enough so that visually impaired users will not struggle to notice it. The example below is of the category links:
+
+<img src="images/test_images/link-hover.png" alt="Link on hover">
+
+
+- As a returning shopper, I want to be able to view my profile page.
+- As a returning shopper, I want to be able to see my previously viewed products
+
+    Once logged in, the profile page works as expected, displaying previous purchases.
+
+- As a returning shopper, I want to be able to view my previosuly purchased products see reviews and comments I have left on my products
+- As a returning shopper, I want to be able to see recently added products
+
+
+### Registration
 
 - As a new shopper, I want to be able to register with an email or social account
 - As a newly registered shopper, I want to receive a confirmation email upon registration
 
-Upon registering, an email confirmation should be sent to the user. At the time of writing this, The email is only printed to the console. This will eventually be updated to actually send an email. For now, I am just testing that the user has been added to the users databse and that the 'email' is printed to the console. If both of these things occur, I can confirm that this part of my registration system works correctly.
+Upon registering, an email confirmation is sent to the user. Before the confirmation link is clicked, the user is added to the django admin Users database. The screenshots below show the filled signup form, the admin page Users database, and the confirmation email. The attempted sign up was done using an already existing user to test whether the site deals with an identical username effectively. I also entered the repeated password incorrectly to test this error handling as well.
 
 <figure>
   <img src="images/test_images/reg_test_signup.png" alt="Signup form">
-  <figcaption>Signup form with username, email, password and retype password all filled.</figcaption>
+  <figcaption>Completed signup form</figcaption>
 </figure>
 <figure>
   <img src="images/test_images/reg_test_admin.png" alt="Admin page displaying Users">
   <figcaption>Admin page displaying Users.</figcaption>
 </figure>
 <figure>
-  <img src="images/test_images/reg_test_terminal.png" alt="Terminal displaying confirmation email">
-  <figcaption>Terminal displaying confirmation email.</figcaption>
+  <img src="images/test_images/reg_conf_email.png" alt="Terminal displaying confirmation email">
+  <figcaption>Confirmation email.</figcaption>
 </figure>
-
-Upon Signup, the account with username testing and email testing@testmail.com has been added to the users database. Furthermore, the email was sent to the console. Then, the form info is posted to /accounts/signup and finally an attempt to redirect to acccounts/profile is made. This page is yet to exist and so the redirect functionality will be tested later.
 
 I have not yet implemented the social account registration method.
 
@@ -37,27 +53,9 @@ I have not yet implemented the social account registration method.
   <figcaption>Sign-up form with placeholder text showing.</figcaption>
 </figure>
 
-The placeholder text suggests that either the username or email can be used to log in using the form.
+The placeholder text shows the user that either the username or email can be used to log in using the form.
 
-![alt text](signin_with_username.png)
+I first attempted to sign in with the username and this worked. I then tried the same with the email and achieved the same result.
 
-<figure>
-  <img src="images/test_images/signin_with_username.png" alt="Sign-up form with username filled">
-  <figcaption>Sign-up form with username filled.</figcaption>
-</figure>
+I have not yet Added a social account login, as shown in README.md 'Future Features' section.
 
-
-As I am yet to create the profile template, signing in produces a 404 Page Not Found error. However, this still confirms that the login process has occurred correctly. I can also manually redirect back to the /accounts/ page, which defaults to /accounts/email/ if signed in. The following page is displayed, confirming that the user is logged in as 'testing'
-
-<figure>
-  <img src="images/test_images/signed_in.png" alt="Signed in page">
-  <figcaption>Signed in page.</figcaption>
-</figure>
-
-I then signed out and attempted the same process using the email to sign in instead of the username and acheieved the same results. 
-
-![alt text](image.png)
-<figure>
-  <img src="images/test_images/signin_with_email.png" alt="Signed in page">
-  <figcaption>Signed in page.</figcaption>
-</figure>

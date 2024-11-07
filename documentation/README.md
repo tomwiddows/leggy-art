@@ -28,7 +28,6 @@ Welcome to the Leggy Art website. As part of my Level 5 Web Development Diploma 
 #### Viewing and Navigation
 
 - As a returning shopper, I want to be able to view my profile page
-- As a returning shopper, I want to be able to see my previously viewed products
 - As a returning shopper, I want to be able to view my previosuly purchased products see reviews and comments I have left on my products
 - As a returning shopper, I want to be able to see recently added products
 
