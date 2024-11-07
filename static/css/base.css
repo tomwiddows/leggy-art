@@ -69,6 +69,11 @@ body {
     background-color: #ffffff;
 }
 
+.shop-now-button:hover{
+    background-color: #ffffff;
+    color: rgb(89, 152, 199);
+}
+
 .heading-height {
     margin-top: 65vw;
 }
@@ -78,11 +83,11 @@ body {
 }
 
 .category-link:hover h5 {
-    color: rgb(144, 30, 201);
+    color: rgb(89, 152, 199);
 }
 
 .category-link:hover img {
-    border: rgb(144, 30, 201) solid 2px;
+    border: rgb(89, 152, 199)solid 2px;
 }
 
 .homepage-content {
@@ -101,7 +106,7 @@ body {
 /* about.html styles */
 
 .about-content {
-    padding: 5vw 0 5vw;
+    padding: 5vw 0 5vw 0;
 }
 
 /* prints.html and print_detail.html styles */
