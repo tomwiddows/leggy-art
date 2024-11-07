@@ -16,6 +16,7 @@
 .slides {
   position: relative;
   max-width: 600px; 
+  height: 400px;
 }
 
 .slides img, .slides figcaption, .slides label {
@@ -32,6 +33,7 @@
   top: 0; 
   left: 0;
   height: 100%; 
+  width: 100%;
   object-fit: scale-down;
 }
 
