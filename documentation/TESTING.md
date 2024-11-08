@@ -35,3 +35,26 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | [Checkout success](https://leggy-art-a938bdcf1c85.herokuapp.com/checkout/checkout_success/AF2E13773BDB4F498D4A862E3F21AA8E) | <img src="images/test_images/checkout_success_validation.png" alt="Checkout success page validation"> | No issues |
 | [About](https://leggy-art-a938bdcf1c85.herokuapp.com/about/) | <img src="images/test_images/about_validation.png" alt="Checkout success page validation"> | No issues |
 | [About](https://leggy-art-a938bdcf1c85.herokuapp.com/about/) | <img src="images/test_images/about_validation.png" alt="Checkout success page validation"> | No issues |
+
+### CSS 
+
+I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files. I copied and pasted the css code into the validator using this link (to ensure that it was only my code and no external libraries/frameworks were included): https://jigsaw.w3.org/css-validator/#validate_by_input
+
+| File | Screenshot | Comments |
+| --- | --- | --- |
+| base.css | <img src="images/test_images/base_css_validation.png" alt="Base CSS validation"> | OK |
+| checkout.css | <img src="images/test_images/checkout_css_validation.png" alt="Checkout CSS validation"> | Great |
+| slideshow.css | <img src="images/test_images/slideshow_css_validation.png" alt="Slideshow CSS validation"> | Booss that |
+| profile.css | <img src="images/test_images/profile_css_validation.png" alt="Profile CSS validation"> | Excellent |
+
+### JavaScript
+
+I have used [JSHint](https://jshint.com/) to validate my JavScript code. JSHint cannot validate JQuery so some warnings are invalid.
+
+| File | Screenshot | Comments |
+| --- | --- | --- |
+| countryfield.js <br> (profiles app) | <img src="images/test_images/countryfield_js_validation.png" alt="Countryfield JS validation"> | Two warnings; no issues |
+| stripe_elements.js <br> (checkout app) | <img src="images/test_images/stripe_elements_js_validation.png" alt="Stripe elements JS validation"> | Missing semicolon fixed |
+| add_products.html postload_js <br> edit_products.html postload_js | <img src="images/test_images/add_products_js_validation.png" alt="add_products.html postload_js validation"> | Missing semicolon fixed |
+| prints.html postload_js | <img src="images/test_images/prints_postload_js_validation.png" alt="prints.html postload_js validation"> | Missing semicolon fixed |
+| prints.html postload_js | <img src="images/test_images/base_postload_js_validation.png" alt="base.html postload_js validation"> | Missing semicolons fixed |
