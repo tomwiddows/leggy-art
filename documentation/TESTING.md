@@ -23,3 +23,15 @@ Return back to the [README.md](README.md) file.
 
 ### HTML
 
+I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files. I have validated using the live, deployed site using the live site links shown below.
+
+| Page | Screenshot | Comments |
+| --- | --- | --- |
+| [Home](https://leggy-art-a938bdcf1c85.herokuapp.com/) | <img src="images/test_images/homepage_validation.png" alt="Homepage validation"> | The warning is a minor issue, and I have previously encountered issues when not using type="text/javascript" |
+| [Prints](https://leggy-art-a938bdcf1c85.herokuapp.com/products/) | <img src="images/test_images/prints_validation.png" alt="Prints page validation"> | The error is from bootstrap code |
+| [Print detail](https://leggy-art-a938bdcf1c85.herokuapp.com/products/1/) | <img src="images/test_images/print_detail_validation.png" alt="Print detail page validation"> | Out-of-place end of anchor tags indentified and removed |
+| [Basket](https://leggy-art-a938bdcf1c85.herokuapp.com/basket/) | <img src="images/test_images/basket_validation.png" alt="Basket page validation"> | Out-of-place end of div tag indentified and removed |
+| [Checkout](https://leggy-art-a938bdcf1c85.herokuapp.com/checkout/) | <img src="images/test_images/checkout_validation.png" alt="Checkout page validation"> | Bootstrap issue |
+| [Checkout success](https://leggy-art-a938bdcf1c85.herokuapp.com/checkout/checkout_success/AF2E13773BDB4F498D4A862E3F21AA8E) | <img src="images/test_images/checkout_success_validation.png" alt="Checkout success page validation"> | No issues |
+| [About](https://leggy-art-a938bdcf1c85.herokuapp.com/about/) | <img src="images/test_images/about_validation.png" alt="Checkout success page validation"> | No issues |
+| [About](https://leggy-art-a938bdcf1c85.herokuapp.com/about/) | <img src="images/test_images/about_validation.png" alt="Checkout success page validation"> | No issues |

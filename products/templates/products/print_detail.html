@@ -15,7 +15,7 @@
                         <!-- Slide 1: Displaying the first product image -->
                         <input type="radio" name="slides" id="slide1" checked>
                         <figure>
-                            <a href="{{ product.image_1.url }}"></a>
+                            <a href="{{ product.image_1.url }}">
                                 <img class="card-img-top img-fluid" src="{{ product.image_1.url }}" alt="{{ product.name }}">
                             </a>
                             <label for="slide2" class="next">&#9654;</label> <!-- Next button -->
@@ -24,7 +24,7 @@
                         <!-- Slide 2: Displaying the second product image -->
                         <input type="radio" name="slides" id="slide2">
                         <figure>
-                            <a href="{{ product.image_2.url }}"></a>
+                            <a href="{{ product.image_2.url }}">
                                 <img class="card-img-top img-fluid" src="{{ product.image_2.url }}" alt="{{ product.name }}">
                             </a>
                             <label for="slide1" class="last">&#9664;</label> <!-- Previous button -->
