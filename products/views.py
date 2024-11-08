@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 from urllib.parse import urlencode
 
 # Import models and forms for the products
@@ -13,7 +14,9 @@ from .forms import ProductForm
 
 
 def all_prints(request):
-    """ A view to show all prints/products with search, filter, and sorting functionality """
+    """
+    A view to show all prints/products with search, filter, and sorting functionality
+    """
 
     # Start with all products
     products = Print.objects.all()
@@ -34,7 +37,7 @@ def all_prints(request):
                 products = products.annotate(lower_name=Lower('name'))
             # If sorting by category, sort by the category's name
             if sortkey == 'category':
-                sortkey =  'category__name'
+                sortkey = 'category__name'
             # Handle sorting direction (ascending or descending)
             if 'direction' in request.GET:
                 direction = request.GET['direction']
@@ -82,7 +85,9 @@ def all_prints(request):
 
 
 def print_detail(request, print_id):
-    """ A view to show the details of a single print/product """
+    """
+    A view to show the details of a single print/product
+    """
 
     # Get the product by its ID, or return a 404 error if it doesn't exist
     product = get_object_or_404(Print, pk=print_id)
@@ -98,7 +103,9 @@ def print_detail(request, print_id):
 
 @login_required
 def add_product(request):
-    """ Add a new product to the store (only accessible to store owners) """
+    """
+    Add a new product to the store (only accessible to store owners)
+    """
     
     # Check if the user is a store owner (superuser)
     if not request.user.is_superuser:
@@ -130,7 +137,9 @@ def add_product(request):
 
 @login_required
 def edit_product(request, print_id):
-    """ Edit an existing product in the store (only accessible to store owners) """
+    """
+    Edit an existing product in the store (only accessible to store owners)
+    """
     
     # Check if the user is a store owner (superuser)
     if not request.user.is_superuser:
@@ -169,7 +178,9 @@ def edit_product(request, print_id):
 
 @login_required
 def delete_product(request, print_id):
-    """ Delete a product from the store (only accessible to store owners) """
+    """
+    Delete a product from the store (only accessible to store owners)
+    """
     
     # Check if the user is a store owner (superuser)
     if not request.user.is_superuser:

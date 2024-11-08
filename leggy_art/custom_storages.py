@@ -1,5 +1,7 @@
-from django.conf import settings # Import settings.py file
-from storages.backends.s3boto3 import S3Boto3Storage # Import S3's Boto3 which is required for collectstatic to run
+# Import settings.py file
+from django.conf import settings
+# Import S3's Boto3 which is required for collectstatic to run
+from storages.backends.s3boto3 import S3Boto3Storage
 
 
 # Set storage for static files upon collectstatic

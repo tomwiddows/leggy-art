@@ -25,7 +25,10 @@ def profile(request):
             form.save()
             messages.success(request, 'Profile update complete')  # Success message
         else:
-            messages.error(request, 'Update failed. Please ensure the form is valid')  # Error message
+            messages.error(
+                request, 
+                'Update failed. Please ensure the form is valid'  # Error message
+            )
     else:
         # Pre-populate the form with the current user profile data if it's a GET request
         form = UserProfileForm(instance=profile)
@@ -35,7 +38,6 @@ def profile(request):
         orders = profile.orders.all()
     else:
         orders = Order.objects.all()
-
 
     # Define the context for the template
     template = 'profiles/profile.html'
@@ -56,10 +58,12 @@ def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
     # Provide an info message that explains this is a past confirmation for the order
-    messages.info(request, (
-        f'This is a past confirmation for order number {order_number}. '
-        'A confirmation email was sent on the order date.'
-    ))
+    messages.info(
+        request, (
+            f'This is a past confirmation for order number {order_number}. '
+            'A confirmation email was sent on the order date.'
+        )
+    )
 
     # Define the context for the order history template
     template = 'checkout/checkout_success.html'

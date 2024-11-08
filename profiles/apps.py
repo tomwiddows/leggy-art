@@ -1,4 +1,5 @@
-from django.apps import AppConfig # Install AppConfig from django, to identify which configuration to use
+# Install AppConfig from django, to identify which configuration to use
+from django.apps import AppConfig
 
 
 # Define profiles configuration

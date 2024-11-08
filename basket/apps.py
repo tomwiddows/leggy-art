@@ -1,5 +1,5 @@
 # Install AppConfig from django, to identify which configuration to use
-from django.apps import AppConfig  
+from django.apps import AppConfig
 
 # Define basket configuration
 class BasketConfig(AppConfig):

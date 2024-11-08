@@ -20,30 +20,45 @@ class UserProfile(models.Model):
 
     # The following fields store the user's default delivery information.
     # All fields are optional, as indicated by null=True, blank=True
-    default_phone_number = models.CharField(max_length=20, null=True, blank=True)  # User's default phone number
-    default_street_address1 = models.CharField(max_length=80, null=True, blank=True)  # Primary street address
-    default_street_address2 = models.CharField(max_length=80, null=True, blank=True)  # Secondary street address (if any)
-    default_town_or_city = models.CharField(max_length=40, null=True, blank=True)  # User's town or city
-    default_county = models.CharField(max_length=80, null=True, blank=True)  # User's county (if applicable)
-    default_postcode = models.CharField(max_length=20, null=True, blank=True)  # User's postal code
-    default_country = CountryField(blank_label='Country', null=True, blank=True)  # Country of residence (using a third-party CountryField)
+    default_phone_number = models.CharField(
+        max_length=20, null=True, blank=True
+    )
+    default_street_address1 = models.CharField(
+        max_length=80, null=True, blank=True
+    )
+    default_street_address2 = models.CharField(
+        max_length=80, null=True, blank=True
+    )
+    default_town_or_city = models.CharField(
+        max_length=40, null=True, blank=True
+    )
+    default_county = models.CharField(
+        max_length=80, null=True, blank=True
+    )
+    default_postcode = models.CharField(
+        max_length=20, null=True, blank=True
+    )
+    default_country = CountryField(
+        blank_label='Country', null=True, blank=True
+    )
 
     def __str__(self):
-        # Returns the username of the associated User object when the profile is displayed.
+        # Returns the username of the User object when the profile is displayed.
         return self.user.username
 
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
-    Signal to create or update a UserProfile when a User instance is created or saved.
-    This ensures that a profile is always created for a user upon registration
-    and is kept updated when the user object is saved.
+    Signal to create or update a UserProfile when a User instance is created 
+    or saved. This ensures that a profile is always created for a user upon 
+    registration and is kept updated when the user object is saved.
     """
-    
+
     if created:
-        # If the user is newly created, create a corresponding UserProfile for them.
+        # If the user is newly created, create a corresponding UserProfile
+        # for them.
         UserProfile.objects.create(user=instance)
-    
+
     # For existing users, just save their profile (to update any changes).
     instance.userprofile.save()

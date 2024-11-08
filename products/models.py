@@ -1,6 +1,7 @@
 # Import necessary modules from Django
 from django.db import models
-from django.contrib.auth import get_user_model  # Import the custom user model
+# Import the custom user model
+from django.contrib.auth import get_user_model
 
 # Get the User model (instead of using 'User' directly, to support custom user models)
 User = get_user_model()
@@ -12,7 +13,8 @@ class Category(models.Model):
     Categories help organize products in a logical structure.
     """
     class Meta:
-        verbose_name_plural = "Categories"  # Custom plural name for the Category model in admin
+        # Custom plural name for the Category model in admin
+        verbose_name_plural = "Categories"
 
     # The name of the category (e.g., "Nature", "Abstract Art")
     name = models.CharField(max_length=254)
@@ -21,7 +23,8 @@ class Category(models.Model):
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
-        return self.name  # When a category is represented as a string, return the name.
+        # When a category is represented as a string, return the name.
+        return self.name
 
     def get_friendly_name(self):
         """
@@ -33,7 +36,8 @@ class Category(models.Model):
 # Print model represents the actual products that are being sold.
 class Print(models.Model):
     """
-    A model to represent a product (a 'Print'), with attributes like price, description, and images.
+    A model to represent a product (a 'Print'), with attributes like price,
+    description, and images.
     """
     # Choices for the orientation of the print (Landscape, Portrait, Square)
     ORIENTATION_CHOICES = [
@@ -76,14 +80,15 @@ class Print(models.Model):
     image_2 = models.ImageField(default='No Image')
 
     def __str__(self):
-        return self.name  # When a print product is represented as a string, return its name
+        # When a print product is represented as a string, return its name
+        return self.name
 
 
 # Review model represents customer reviews for the Print products.
 class Review(models.Model):
     """
-    A model for customer reviews on products (Prints). Each review is associated with a specific print
-    and a specific user.
+    A model for customer reviews on products (Prints). Each review is associated
+    with a specific print and a specific user.
     """
     # Foreign key linking the review to a specific print product
     product = models.ForeignKey(Print, on_delete=models.CASCADE, related_name='reviews')
@@ -95,10 +100,12 @@ class Review(models.Model):
     content = models.TextField()
     
     # Rating given to the product (e.g., 1-5 stars, or 1-10 scale)
-    rating = models.IntegerField(default=5)  # Default rating is set to 5 stars (out of 5)
+    rating = models.IntegerField(default=5)
+    # Default rating is set to 5 stars (out of 5)
     
     # Timestamp for when the review was created
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"By {self.user.username}"  # Represent the review by the user's username who posted it
+        # Represent the review by the user's username who posted it
+        return f"By {self.user.username}"

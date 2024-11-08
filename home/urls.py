@@ -1,5 +1,7 @@
-from django.urls import path # Import the path function for routing URLs
-from . import views # Import views from basket app
+# Import the path function for routing URLs
+from django.urls import path
+# Import views from basket app
+from . import views
 
 # Define url paths for all links within home app
 urlpatterns = [

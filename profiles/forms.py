@@ -2,6 +2,7 @@
 from django import forms
 from .models import UserProfile
 
+
 class UserProfileForm(forms.ModelForm):
     """
     A form for updating the user profile, allowing users to edit their personal
@@ -10,18 +11,22 @@ class UserProfileForm(forms.ModelForm):
     
     # Meta class defines model and fields for the form
     class Meta:
-        model = UserProfile  # The form will interact with the UserProfile model
-        exclude = ('user',)  # Exclude the 'user' field from the form (this is handled automatically)
+        # The form will interact with the UserProfile model
+        model = UserProfile
+        # Exclude the 'user' field from the form (this is handled automatically)
+        exclude = ('user',)
 
     def __init__(self, *args, **kwargs):
         """
         Custom initialization for the form to:
         - Add placeholders to fields for better user guidance
         - Add CSS classes to fields for styling
-        - Remove auto-generated labels to use custom placeholders and improve form appearance
+        - Remove auto-generated labels to use custom placeholders and improve 
+          form appearance
         - Set autofocus on the first field for a better user experience
         """
-        super().__init__(*args, **kwargs)  # Call the parent class constructor to initialize the form
+        # Call the parent class constructor to initialize the form
+        super().__init__(*args, **kwargs)
 
         # A dictionary to map fields to their corresponding placeholders
         placeholders = {
@@ -38,7 +43,8 @@ class UserProfileForm(forms.ModelForm):
 
         # Iterate over each field in the form and customize it
         for field in self.fields:
-            if field != 'default_country':  # Skip 'default_country' because it may be a dropdown field
+            # Skip 'default_country' because it may be a dropdown field
+            if field != 'default_country':
                 # Add a placeholder and append a '*' if the field is required
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
@@ -48,8 +54,10 @@ class UserProfileForm(forms.ModelForm):
                 # Set the placeholder for the field
                 self.fields[field].widget.attrs['placeholder'] = placeholder
 
-            # Add CSS classes to each field for styling (e.g., to make input fields uniform)
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-input'
+            # Add CSS classes to each field for styling
+            self.fields[field].widget.attrs['class'] = (
+                'border-black rounded-0 profile-form-input'
+            )
 
-            # Remove the default label for each field, so that placeholders are used instead
+            # Remove the default label for each field, use placeholders instead
             self.fields[field].label = False

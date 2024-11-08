@@ -14,13 +14,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin  # Import the Django admin site, used to manage the application models via an interface
-from django.urls import path, include  # Import the path and include functions for routing URLs and including other URL configurations
-from django.conf import settings  # Import Django settings, allowing access to configuration variables such as STATIC_URL, MEDIA_URL, etc.
-from django.conf.urls.static import static  # Import the static function to serve static files during development
+# Import the Django admin site, used to manage the application models via
+# an interface
+from django.contrib import admin
+# Import the path and include functions for routing URLs and including other
+# URL configurations
+from django.urls import path, include
+# Import Django settings, allowing access to configuration variables such as
+# STATIC_URL, MEDIA_URL, etc.
+from django.conf import settings
+# Import the static function to serve static files during development
+from django.conf.urls.static import static
 
 
-# Configure url paths for each app...
+# Configure url paths for each app and static files
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
@@ -29,4 +36,4 @@ urlpatterns = [
     path('basket/', include('basket.urls')),
     path('checkout/', include('checkout.urls')),
     path('accounts/profile/', include('profiles.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) # ...and the static and media files
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

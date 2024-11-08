@@ -46,8 +46,8 @@ def basket_contents(request):
             settings.BASELINE_DELIVERY_FEE + (total * settings.EXTRA_DELIVERY_PERCENTAGE) / 100
         )
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total  # How much more
-                                                                          # the user needs to spend
-                                                                          # for free delivery
+                                                                        # the user needs to spend
+                                                                        # for free delivery
     else:
         # If the total is above the free delivery threshold, no delivery fee
         delivery = 0

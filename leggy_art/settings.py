@@ -10,23 +10,20 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
-from pathlib import Path  # Import the Path class from pathlib module for working with file paths
-import os  # Import os module to interact with the operating system
-import dj_database_url  # Import dj_database_url, a utility to configure the database settings from a URL
-from dotenv import load_dotenv  # Imports load_dotenv from the dotenv package, used to load environment variables from .env file
+from pathlib import Path  # Import the Path class from pathlib for file paths
+import os  # Interact with the operating system
+import dj_database_url  # Utility to configure database from URL
+from dotenv import load_dotenv  # Load environment variables from .env file
 
 
-# Set variable to later check if Dyno is running
+# Set variable to check if Dyno is running on Heroku
 IS_HEROKU = 'DYNO' in os.environ
 
-# If Dyno is running, access SECRET_KEY from heroku
+# If running on Heroku, access secret key and debug setting from Heroku env
 if IS_HEROKU:
-    # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = 'DEVELOPMENT' in os.environ
-    # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = os.environ.get('SECRET_KEY')
-
-# If not, access from local .env file
+# If not on Heroku, access from local .env file
 else:
     load_dotenv()
     SECRET_KEY = os.getenv("SECRET_KEY")
@@ -45,11 +42,10 @@ ALLOWED_HOSTS = [
     '8000-tomwiddows-leggyart-zyexeiklff4.ws.codeinstitute-ide.net',
     'leggy-art-a938bdcf1c85.herokuapp.com',
     'local_host'
-    ]
+]
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'allauth',
     'allauth.account',
@@ -66,7 +62,7 @@ INSTALLED_APPS = [
     'checkout',
     'profiles',
 
-    #Other
+    # Other third-party apps
     'crispy_forms',
     'storages',
 ]
@@ -93,7 +89,6 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR / 'templates',
             BASE_DIR / 'templates' / 'allauth',
-
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -118,13 +113,13 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 WSGI_APPLICATION = 'leggy_art.wsgi.application'
 
 
-# Database
+# Database configuration
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-        }
+    }
 else:
     DATABASES = {
         'default': {
@@ -152,55 +147,49 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
+# Internationalization settings
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static and media files
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-#STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-
-#MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Cache control
+
+# Cache control settings for AWS
 if USE_AWS in os.environ:
     AWS_S3_OBJECT_PARAMETERS = {
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',
     }
 
-# Bucket config
+# AWS S3 configuration
 AWS_STORAGE_BUCKET_NAME = 'leggy-art'
 AWS_S3_REGION_NAME = 'eu-west-2'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
-# Static and media files
+# Static and media file locations
 STATICFILES_LOCATION = 'static'
 MEDIAFILES_LOCATION = 'media'
 
-# Static and media urls
+# URLs for static and media files served from S3
 STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-# Set storage file for collectstatic process
+# Set custom storage backends for static and media files
 STORAGES = {
     "default": {"BACKEND": "leggy_art.custom_storages.MediaStorage"},
     "staticfiles": {"BACKEND": "leggy_art.custom_storages.StaticStorage"},
 }
-
 
 
 # Default primary key field type
@@ -208,33 +197,32 @@ STORAGES = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
 
-    # `allauth` specific authentication methods, such as login by email
+# Authentication backends configuration
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {}
 
-# Trust local server and Heroku deployed site
+# CSRF trusted origins for local server and Heroku site
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-tomwiddows-leggyart-zyexeiklff4.ws.codeinstitute-ide.net',
     'https://leggy-art-a938bdcf1c85.herokuapp.com/'
 ]
 
-# Signup settings
+# Account authentication settings
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
-lOGIN_URL = '/accounts/login'
-lOGIN_REDIRECT_URL = '../profiles'
+LOGIN_URL = '/accounts/login'
+LOGIN_REDIRECT_URL = '../profiles'
 
 
-# Stripe
+# Stripe settings
 FREE_DELIVERY_THRESHOLD = 50
 BASELINE_DELIVERY_FEE = 3
 EXTRA_DELIVERY_PERCENTAGE = 1
@@ -243,7 +231,7 @@ STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
-# Confirmation email settings. If in development, print emails to console. if not in development, send real email
+# Email backend settings for confirmation emails
 if os.environ.get('DEVELOPMENT').lower() == 'true':
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEFAULT_FROM_EMAIL = 'leggyartshop@gmail.com'
