@@ -184,6 +184,10 @@ Users can not yet leave a rating of products they have purchased. This will be a
 
 Users do not yet have the option to delete their account from the database. This feature would work similarly to how a superuser can delete products. 
 
+### Unfixed Bugs
+
+I had some issues near the beginning of my project with positioning the homepage heading element and shop now button at a consistent height within the hero-image. I found a workaround for this which involved using the hero-images' aspect ratios, and setting its height relative to the screen width and image aspect ratio. However, I later realised that when the navigation bar is collapsed on small screens, and the menu is opened, these elements get pushed down as the height of the navigation bar is larger. I am unsure on how to fix this but will keep researching.
+
 ## Tools & Technologies Used
 
 - [HTML](https://en.wikipedia.org/wiki/HTML) used for the main site content.
@@ -397,3 +401,46 @@ This project is deployed to Heroku. It is set to automatically update within her
 
 39. After creating a stripe account, navigate to 'API Keys' under 'Developers', copy the STRIPE_SECRET_KEY and STRIPE_PUBLIC_KEY and store them as Heroku Config vars. Now create a new webhook endpoint. Add the url for the heroku app followed by /checkout/wh/. Select 'Receive all events' and click 'Add endpoint'. Reveal the webhook signing secret and add it as a Heroku config var as STRIPE_WH_HANDLER.
 
+## Citations
+
+- https://github.com/sachingupta006/django-allauth/blob/master/allauth/account/forms.py used to research how to alter django-allauth forms
+
+- https://docs.allauth.org/en/latest/common/templates.html used to research how to alter django-allauth templates 
+
+- https://devncoffee.com/responsive-image-slider-in-html-css/ used to create image slider in print_details.html
+
+- https://medium.com/@iamalisaleh/how-to-get-the-current-url-within-a-django-template-8270b977f280 - used to research how to return to current url when incorrect details are entered in forms
+
+- https://stackoverflow.com/questions/6308850/relative-position-with-background-image used to position heading elements in index.html relative to background image
+
+- https://w3schools.invisionzone.com/topic/30695-my-page-content-overflows-but-i-cant-scroll-down used to fix scrolling bug
+
+- https://docs.djangoproject.com/en/5.1/ref/request-response/ used to researchdjango's HttpRequest objects work
+
+- https://compresspng.com/ used to compress hero images for faster page loading
+
+- https://django-crispy-forms.readthedocs.io/en/latest/crispy_tag_forms.html used to research crispy forms
+
+- https://randomkeygen.com/ used to generate Heroku secret key
+
+- https://github.com/django/django/blob/main/django/forms/templates/django/forms/widgets/clearable_file_input.html used this code to clear widget
+
+- https://forum.djangoproject.com/t/static-path-with-s3/28696/9 used this code to fix bug in settings.py for uploading static files to S3
+
+- https://css-tricks.com/snippets/css/css-triangle/ used this CSS code for left and right arrows in print_detail.html slideshow
+
+- https://stackoverflow.com/questions/68425724/what-is-the-use-of-apps-py-appconfig-in-django-project-how-and-why-to-use-it used to understand how AppConfig works
+
+- https://www.site24x7.com/tools/color-code-picker.html#:~:text=Sign%20Up-,Color%20Code%20Picker,file%20size%20is%20upto%201MB. used  to obtain hexcode of part of the blue wall in hero images
+
+## Acknowledgements
+
+Thank you to my brother, 'Leggy' for allowing me to use his artwork, for writing the product descriptions, and for writing about himself in the about.html page
+
+Thank you to my mentor, Sheryl, for supporting me through Slack huddles and via Slack DMs. Sheryl has always found the time to help me fix bugs when I am struggling by finding documentation for me to check out and providing examples from other students on how to write a good README.md and TESTING.md file. She gave great feedback in our video calls about what I am doing right and aspects I could think about changing. I am very grateful for her help.
+
+Thank you to Kaynat for also helping me with bug fixes and for providing guidance before I started the project. Also I really appreciate the time you spend marking our projects.
+
+Thank you to ckz8780, the creator of the Boutiqe Ado walthrough project videos on Code Institute, for your in-depth explanations on implementing all the necessary functionality when creating a Django app and on how to deploy correctly.
+
+Thank you to everyone else at Code Institute and Peterborough University Centre that helps to keep up the running of this course. I feel very fulfulled at the end of my course and I am excited for the rest of my future as a web developer.

@@ -34,7 +34,6 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | [Checkout](https://leggy-art-a938bdcf1c85.herokuapp.com/checkout/) | <img src="images/test_images/checkout_validation.png" alt="Checkout page validation"> | Bootstrap issue |
 | [Checkout success](https://leggy-art-a938bdcf1c85.herokuapp.com/checkout/checkout_success/AF2E13773BDB4F498D4A862E3F21AA8E) | <img src="images/test_images/checkout_success_validation.png" alt="Checkout success page validation"> | No issues |
 | [About](https://leggy-art-a938bdcf1c85.herokuapp.com/about/) | <img src="images/test_images/about_validation.png" alt="Checkout success page validation"> | No issues |
-| [About](https://leggy-art-a938bdcf1c85.herokuapp.com/about/) | <img src="images/test_images/about_validation.png" alt="Checkout success page validation"> | No issues |
 
 ### CSS 
 
@@ -58,3 +57,16 @@ I have used [JSHint](https://jshint.com/) to validate my JavScript code. JSHint 
 | add_products.html postload_js <br> edit_products.html postload_js | <img src="images/test_images/add_products_js_validation.png" alt="add_products.html postload_js validation"> | Missing semicolon fixed |
 | prints.html postload_js | <img src="images/test_images/prints_postload_js_validation.png" alt="prints.html postload_js validation"> | Missing semicolon fixed |
 | prints.html postload_js | <img src="images/test_images/base_postload_js_validation.png" alt="base.html postload_js validation"> | Missing semicolons fixed |
+
+
+### Lightouse Testing
+
+| Page | Screenshot |
+| --- | --- |
+| [Home](https://leggy-art-a938bdcf1c85.herokuapp.com/) | <img src="images/test_images/home_lighthouse.png" alt="Homepage lighthouse test"> |
+| [Prints](https://leggy-art-a938bdcf1c85.herokuapp.com/products/) | <img src="images/test_images/prints_lighthouse.png" alt="Prints page lighthouse test"> |
+| [Print detail](https://leggy-art-a938bdcf1c85.herokuapp.com/products/1/) | <img src="images/test_images/print_detail_lighthouse.png" alt="Print detail page lighthouse test"> |
+| [Basket](https://leggy-art-a938bdcf1c85.herokuapp.com/basket/) | <img src="images/test_images/basket_lighthouse.png" alt="Basket page lighthouse test"> |
+| [Checkout](https://leggy-art-a938bdcf1c85.herokuapp.com/checkout/) | <img src="images/test_images/checkout_lighthouse.png" alt="Checkout page lighthouse test"> |
+| [Checkout success](https://leggy-art-a938bdcf1c85.herokuapp.com/checkout/checkout_success/AF2E13773BDB4F498D4A862E3F21AA8E) | <img src="images/test_images/checkout_success_lighthouse.png" alt="Checkout success page lighthouse test"> |
+| [About](https://leggy-art-a938bdcf1c85.herokuapp.com/about/) | <img src="images/test_images/about_lighthouse.png" alt="Checkout success page lighthouse test"> |
