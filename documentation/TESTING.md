@@ -2,12 +2,30 @@
 
 Return back to the [README.md](README.md) file.
 
+## Browser Compatibility
+
+### Microsoft Edge
+
+<img src="images/test_images/edge_compatible.png" alt="Microsoft Edge running site">
+
+### Google Chrome
+
+<img src="images/test_images/chrome_compatible.png" alt="Google Chrome running site">
+
+### Firefox
+
+<img src="images/test_images/firefox_compatible.png" alt="FIrefox running site">
+
+### Google Chrome Mobile
+
+<img src="images/test_images/chrome_mobile_comp.png" alt="Google Chrome mobile version running site">
+
 ## User Stories Testing
 
 | User Story | <div style="width:50%">Screenshot(s)</div> | Comments/Fixes |
 | --- | --- | --- |
 | As a new shopper, I want to know what the site is about within seconds | <img src="images/test_images/homepage.png" alt="Homepage"> | Hero image displays framed prints. Logo informs the page is for artwork. |
-| As a new shopper, I want the site navigation to clear and intuitive | <img src="/workspace/leggy-art/documentation/images/readme_images/navbar-md.png"><br><img src="images/test_images/link-hover.png" alt="Link on hover"> | All navigation links working. Links changing colour on hover for accessibility |
+| As a new shopper, I want the site navigation to clear and intuitive | <img src="/workspace/leggy-art/documentation/images/readme_images/navbar-md.png"><br><img src="images/test_images/link_hover.png" alt="Link on hover"> | All navigation links working. Links changing colour on hover for accessibility |
 | As a new shopper, I might want to find out information about the artist in an 'About' page | <img src="images/test_images/about.png" alt="Homepage"> | About page contains ralevant info |
 | As a new shopper, I want to be able to register with an email or social account | <img src="images/test_images/reg_test_signup.png" alt="Signup form"> | Social account signup functionality not yet implemented, as discussed in README.md future features section |
 | As a newly registered shopper, I want to receive a confirmation email upon registration | <img src="images/test_images/reg_conf_email.png" alt="Confirmation email"> | Confirmation email sent with link to finalise process |
