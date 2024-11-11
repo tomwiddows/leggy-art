@@ -59,10 +59,10 @@ Welcome to the Leggy Art website. As part of my Level 5 Web Development Diploma 
     </tr>
     <tr>
         <td>
-            <img src="/workspace/leggy-art/documentation/images/readme_images/wireframe_sm.png" height="300px" style="padding:5px">
+            <img src="images/readme_images/wireframe_sm.png" height="300px" style="padding:5px">
         </td>
         <td>
-            <img src="/workspace/leggy-art/documentation/images/readme_images/wireframe_lg.png" height="300px" style="padding:5px">
+            <img src="images/readme_images/wireframe_lg.png" height="300px" style="padding:5px">
         </td>
     </tr>
 </table>
@@ -93,8 +93,8 @@ As I already had a logo design to work from, looking for the right font was base
 
 The navigation bar consists of a Logo, search bar and button, and six other buttons: Prints, About, Register, Login and Basket. Bootstrap's collapsible navbar is used, which moves all features except the logo into a dropdown menu. The logo acts as a home button.
 
-<img src="/workspace/leggy-art/documentation/images/readme_images/navbar-md.png">
-<img src="/workspace/leggy-art/documentation/images/readme_images/navbar-sm.png">
+<img src="images/readme_images/navbar-md.png">
+<img src="images/readme_images/navbar-sm.png">
 
 #### Prints
 
@@ -109,7 +109,7 @@ The 'Sort By...' button allows the user to order the prints based on the followi
 - Name (A-Z or Z-A)
 - Category (A-Z or Z-A)
 
-<img src="/workspace/leggy-art/documentation/images/readme_images/sort-by.png">
+<img src="images/readme_images/sort-by.png">
 
 #### About Button
 
@@ -123,7 +123,7 @@ The site section contains an important disclaimer informing users that the site 
 
 The search bar links to the prints.html page, and filters based on the keyword entered. It can filter based on the product names, categories as well as any words contained within the description of a product. 
 
-<img src="/workspace/leggy-art/documentation/images/readme_images/searchbar.png">
+<img src="images/readme_images/searchbar.png">
 
 #### Register Button
 
@@ -137,39 +137,39 @@ The login button directs the user to the login page where they can use either th
 
 The basket button is a FontAwesome icon with the running total underneath. Once an item is added to the basket, its value will be added to this total. This item is also displayed in a pop-up message:
 
-<img src="/workspace/leggy-art/documentation/images/readme_images/basket_popup.png">
+<img src="images/readme_images/basket_popup.png">
 
 Within the basket.html page, any added product's info is displayed. Each item total is shown as well as delivery, and at the bottm, the grand total is calculated. If the free delivery threshold is not reached, his is followed by an alert stating the amount extra that could be spent to get free delivery. Finally, Two buttons are present; One allows the user to continue shopping and the other takes the user to the checkout page:
 
-<img src="/workspace/leggy-art/documentation/images/readme_images/basket_page.png">
+<img src="images/readme_images/basket_page.png">
 
 #### Checkout
 
 The checkout page consists of a two-column container. The left column contains a form with delivery fields. If the user is signed in and has default delivery information in their profile, these fields will be pre-filled. The right column displays the order information:
 
-<img src="/workspace/leggy-art/documentation/images/readme_images/checkout.png">
+<img src="images/readme_images/checkout.png">
 
 #### Checkout Success
 
 Once the order is complete, the checkout success page is rendered, explaining that the order is complete and a confirmation email has been sent to the relevant user. A popup is also loaded:
 
-<img src="/workspace/leggy-art/documentation/images/readme_images/checkout_success.png">
+<img src="images/readme_images/checkout_success.png">
 
 #### Profile
 
 The profile page is only accessible once a user is authenticated. It displays a form for saving/updating default delivery information in the left-hand column, and the user's order history in the right-hand column.
 
-<img src="/workspace/leggy-art/documentation/images/readme_images/profile.png">
+<img src="images/readme_images/profile.png">
 
 if the user is a superuser, all orders are displayed here:
 
-<img src="/workspace/leggy-art/documentation/images/readme_images/superuser_profile.png">
+<img src="images/readme_images/superuser_profile.png">
 
 #### Footer
 
 The footer contains three features: The name of the brand, an instagram link using FontAwesome's instagram icon, and a comment about the site being created for a CodeInstitute diploma, as well as a link to CodeInstitute:
 
-<img src="/workspace/leggy-art/documentation/images/readme_images/footer.png">
+<img src="images/readme_images/footer.png">
 
 ### Future Features
 
