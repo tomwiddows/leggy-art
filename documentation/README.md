@@ -1,6 +1,7 @@
 # Leggy Art Readme
 
-Welcome to the Leggy Art website. As part of my Level 5 Web Development Diploma with Code Institute, I have been tasked with creating and deploying a fully-functional e-commerce site. The 
+Welcome to the Leggy Art website. As part of my Level 5 Web Development Diploma with Code Institute, I have been tasked with creating and deploying a fully-functional e-commerce site. 
+
 
 ## User Stories
 
